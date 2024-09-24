@@ -125,12 +125,12 @@ void MainWindow::on_herbTableView_doubleClicked(const QModelIndex &index)
     {
         QStandardItem *aItem = new QStandardItem(priceListModel->data(priceListModel->index(srcRow,i)).toString());
         orderListModel->setItem(destRow,i,aItem);
-        orderListModel->setData(priceListModel->index(destRow,i),Qt::AlignCenter,Qt::TextAlignmentRole);
+        orderListModel->setData(orderListModel->index(destRow,i),Qt::AlignCenter,Qt::TextAlignmentRole);
     }
 
     QStandardItem *aItem = new QStandardItem("输入数量");
     orderListModel->setItem(destRow,fixed_column,aItem);
-    orderListModel->setData(priceListModel->index(destRow,fixed_column),Qt::AlignCenter,Qt::TextAlignmentRole);
+    orderListModel->setData(orderListModel->index(destRow,fixed_column),Qt::AlignCenter,Qt::TextAlignmentRole);
     orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
 
     emit updatePrice();
