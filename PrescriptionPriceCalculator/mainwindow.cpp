@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),ui(new Ui::MainWind
     connect(orderListModel,&QStandardItemModel::dataChanged,this,&MainWindow::showPrice);
 
     emit ui->herbNameLineEdit->textChanged("");
+
 }
 
 MainWindow::~MainWindow()
@@ -64,9 +65,8 @@ void MainWindow::initPriceList()
 
     priceListModel->setHorizontalHeaderLabels(*HeaderList);
     orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
-
-    ui->herbTableView->resizeColumnsToContents();
-    ui->orderTableView->resizeColumnsToContents();
+    ui->orderTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->herbTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 void MainWindow::on_herbNameLineEdit_textChanged(const QString &str)
@@ -132,7 +132,6 @@ void MainWindow::on_herbTableView_doubleClicked(const QModelIndex &index)
     orderListModel->setItem(destRow,fixed_column,aItem);
     orderListModel->setData(priceListModel->index(destRow,fixed_column),Qt::AlignCenter,Qt::TextAlignmentRole);
     orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
-    ui->orderTableView->resizeColumnsToContents();
 
     emit updatePrice();
 }
@@ -173,9 +172,6 @@ void MainWindow::on_deleteButton_clicked()
     {
         orderListModel->removeRow(toDelList[i].row());
     }
-
-    ui->orderTableView->resizeColumnsToContents();
-
     emit updatePrice();
 }
 
@@ -184,7 +180,5 @@ void MainWindow::on_pushButton_clicked()
 {
     orderListModel->clear();
     orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
-    ui->orderTableView->resizeColumnsToContents();
     emit updatePrice();
 }
-
