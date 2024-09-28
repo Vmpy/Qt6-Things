@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),ui(new Ui::MainWind
     connect(this,&MainWindow::updatePrice,this,&MainWindow::showPrice);
     connect(orderListModel,&QStandardItemModel::dataChanged,this,&MainWindow::showPrice);
 
+
+
     emit ui->herbNameLineEdit->textChanged("");
 
 }
@@ -80,6 +82,7 @@ void MainWindow::on_herbNameLineEdit_textChanged(const QString &str)
     priceListModel->setHorizontalHeaderLabels(*HeaderList);
     ui->herbTableView->resizeColumnsToContents();
 
+    //搜索框为空时，显示所有价目
     if(str.isEmpty())
     {
         for(int i = 1;i < RowCnt;i++)
@@ -181,4 +184,86 @@ void MainWindow::on_pushButton_clicked()
     orderListModel->clear();
     orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
     emit updatePrice();
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Delete)
+    {
+        emit ui->deleteButton->clicked();
+    }
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    QString curPath = QDir::currentPath();
+    QString filter = "订单文件(*.ord);;所有文件(*.*)";
+    QString filename = QFileDialog::getOpenFileName(this,"打开文件",curPath,filter);
+
+    QFile fileDevice(filename);
+    if(!fileDevice.exists())
+    {
+        QMessageBox::warning(this,"警告","文件打开失败");
+        return;
+    }
+    else
+    {
+        if(!fileDevice.open(QIODevice::ReadWrite | QIODevice::Text))
+        {
+            return;
+        }
+        QByteArray Content = fileDevice.readAll();
+        QTextStream aStream(Content);
+
+        orderListModel->clear();
+        int displayRowCnt = 0;
+
+        while(!aStream.atEnd())
+        {
+            QString str  = aStream.readLine();
+            QStringList strList = str.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);
+            for(int i = 0;i < fixed_column+1;i++)
+            {
+                QStandardItem *aItem = new QStandardItem(strList[i]);
+                orderListModel->setItem(displayRowCnt,i,aItem);
+                orderListModel->setData(orderListModel->index(displayRowCnt,i),Qt::AlignCenter,Qt::TextAlignmentRole);
+            }
+            displayRowCnt++;
+        }
+        fileDevice.close();
+        orderListModel->setHorizontalHeaderLabels(*orderHeaderList);
+        emit updatePrice();
+    }
+}
+
+
+void MainWindow::on_actionSave_triggered()
+{
+    QString curPath = QDir::currentPath();
+    QString filter = "订单文件(*.ord);;所有文件(*.*)";
+    QString filename = QFileDialog::getSaveFileName(this,"保存文件",curPath,filter);
+
+    QFile fileDevice(filename);
+
+    if(!fileDevice.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        return;
+    }
+
+    int curRow = 0;
+    int cntRow = orderListModel->rowCount();
+    while(curRow < cntRow)
+    {
+        QString line;
+        for(int i = 0;i < fixed_column+1;i++)
+        {
+            QStandardItem *aItem = orderListModel->item(curRow,i);
+            line += aItem->text() + "\t";
+        }
+        line += "\n";
+        QByteArray lineByte = line.toUtf8();
+        fileDevice.write(lineByte,lineByte.length());
+        curRow++;
+    }
+    fileDevice.close();
 }
