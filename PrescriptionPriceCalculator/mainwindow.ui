@@ -193,14 +193,23 @@
     <property name="title">
      <string>文件</string>
     </property>
-    <addaction name="actionNew"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionOpen"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNew">
+  <action name="actionSave">
    <property name="text">
-    <string>新建</string>
+    <string>保存(&amp;S)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>打开(&amp;O)</string>
    </property>
   </action>
  </widget>
