@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QList>
 #include <QLabel>
+#include <QSlider>
 #include "mymediaplayer.h"
 
 QT_BEGIN_NAMESPACE
@@ -44,8 +45,10 @@ private:
     QAction *_actMusicStop;
     QAction *_actMusicPlayPrev;
     QAction *_actMusicPlayNext;
-    //播放模式Action
     QAction *_actMusicPlayMode;
+    QAction *_actVolumeDown;
+    QAction *_actVolumeUp;
+    QSlider *_sliderVolume;
 
 private slots:
     void slotCreateProj(bool);
@@ -65,6 +68,8 @@ public slots:
     void slotStopClicked();
     void slotPrevMusicClicked();
     void slotNextMusicClicked();
+
+    void slotSetOrientation(Qt::Orientation newOrientation);
 
 protected:
     void resizeEvent(QResizeEvent *e) override;
