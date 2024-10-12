@@ -28,17 +28,22 @@ public:
     void setMasterSwitch(bool checked);
     bool getMasterSwitch();
 
+    void setVolume(int vol);
+    int getVolume(void);
+
     void stopPlayByHand();
     void stopPlayByBtn(MyMediaStopState btn);
 
     QString getPlayingName();
     QString getPlayingModeString();
 
+
 private:
     QMediaPlayer *_player;
     QList<QUrl> _playlist;
     QAudioOutput *_audioOutput;
     int _currentIndex = -1;
+    int _volume = 100;
     bool _masterSwitch = false;
     bool _stopByHand = false;
     MyMediaPlayerlistMode _playMode = MyMediaPlayerlistMode::CurrentItemInLoop;
