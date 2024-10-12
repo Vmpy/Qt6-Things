@@ -13,6 +13,7 @@
 #include "picshow.h"
 #include <QLabel>
 
+
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow),_mediaPlayer(new MyMediaPlayer(this))
 {
     ui->setupUi(this);
@@ -47,6 +48,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _actMusicPlayNext = new QAction(QIcon(":/icon/next-music.svg"),tr("下一曲"),this);
     _actMusicPlayMode = new QAction(QIcon(":/icon/CurrentItemInLoop.svg"),tr("单曲循环"),this);
 
+    _actVolumeDown = new QAction(QIcon(":/icon/volume-down.svg"),tr(""),this);
+    _actVolumeUp = new QAction(QIcon(":/icon/volume-up.svg"),tr(""),this);
+
+    _sliderVolume = new QSlider(Qt::Horizontal,this);
+    _sliderVolume->setMaximumWidth(200);
+    _sliderVolume->setRange(0,100);
+    _sliderVolume->setValue(100);
+
     ui->toolBar->addAction(_actMusic);
     ui->toolBar->addAction(_actMusicSwitch);
     ui->toolBar->addSeparator();
@@ -57,6 +66,12 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->toolBar->addAction(_actMusicPlayNext);
     ui->toolBar->addSeparator();
     ui->toolBar->addAction(_actMusicPlayMode);
+    ui->toolBar->addSeparator();
+    ui->toolBar->addAction(_actVolumeDown);
+    ui->toolBar->addWidget(_sliderVolume);
+    ui->toolBar->addAction(_actVolumeUp);
+    ui->toolBar->addSeparator();
+
 
     connect(_actMusicPlayPrev,&QAction::triggered,this,&MainWindow::slotPrevMusicClicked);
     connect(_actMusicPlay,&QAction::triggered,this,&MainWindow::slotPlayClicked);
@@ -64,6 +79,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(_actMusicStop,&QAction::triggered,this,&MainWindow::slotStopClicked);
     connect(_actMusicPlayNext,&QAction::triggered,this,&MainWindow::slotNextMusicClicked);
     connect(_actMusicPlayMode,&QAction::triggered,this,&MainWindow::slotMusicPlayModeClicked);
+    connect(_sliderVolume,&QSlider::valueChanged,_mediaPlayer,&MyMediaPlayer::setVolume);
+    connect(ui->toolBar,&QToolBar::orientationChanged,this,&MainWindow::slotSetOrientation);
 
     _playMusicMenu->addAction(_actMusicPlayPrev);
     _playMusicMenu->addAction(_actMusicPlay);
@@ -346,4 +363,17 @@ void MainWindow::slotPrevMusicClicked()
 void MainWindow::slotNextMusicClicked()
 {
     _mediaPlayer->stopPlayByBtn(MyMediaStopState::NextBtn);
+}
+
+void MainWindow::slotSetOrientation(Qt::Orientation newOri)
+{
+    _sliderVolume->setOrientation(newOri);
+    if(newOri == Qt::Vertical)
+    {
+        _sliderVolume->setInvertedAppearance(true);
+    }
+    else
+    {
+        _sliderVolume->setInvertedAppearance(false);
+    }
 }
