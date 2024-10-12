@@ -2,12 +2,13 @@
 #include <QRandomGenerator>
 
 MyMediaPlayer::MyMediaPlayer(QObject *parent):
-    QObject(parent),_player(new QMediaPlayer(this)),_audioOutput(new QAudioOutput(this))
+    QObject(parent),_player(new QMediaPlayer(this)),_audioOutput(new QAudioOutput(this)),_volume(100)
 {
     connect(_player,&QMediaPlayer::playbackStateChanged,this,
             &MyMediaPlayer::slotPlayStateChanged);
 
     _player->setAudioOutput(_audioOutput);
+    _audioOutput->setVolume(1.0f);
 }
 
 void MyMediaPlayer::setPlaylist(const QList<QUrl> &playlist)
@@ -113,6 +114,18 @@ void MyMediaPlayer::setMasterSwitch(bool checked)
 bool MyMediaPlayer::getMasterSwitch()
 {
     return _masterSwitch;
+}
+
+void MyMediaPlayer::setVolume(int vol)
+{
+    float volf = vol*0.01f;
+    _audioOutput->setVolume(volf);
+    _volume = vol;
+}
+
+int MyMediaPlayer::getVolume()
+{
+    return _volume;
 }
 
 //在QAction“停止播放”点击之后，停止播放且设置_stopByHand = true;防止playlist进入处理自然停止继续播放槽函数
