@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QList>
 #include <QLabel>
+#include <QPushButton>
 #include <QSlider>
 #include "mymediaplayer.h"
 
@@ -46,9 +47,10 @@ private:
     QAction *_actMusicPlayPrev;
     QAction *_actMusicPlayNext;
     QAction *_actMusicPlayMode;
-    QAction *_actVolumeDown;
-    QAction *_actVolumeUp;
+    QPushButton *_btnVolumeDown;
+    QPushButton *_btnVolumeUp;
     QSlider *_sliderVolume;
+    QLabel *_labelVolume;
     QSlider *_sliderDuration;
     QLabel *_labelPosition;
     QLabel *_labelDuration;
@@ -75,6 +77,8 @@ public slots:
     void slotSetOrientation(Qt::Orientation newOrientation);
     void slotSetPositionSlider(qint64 position);
     void slotSetDurationSlider(qint64 duration);
+
+    void slotVolumeTextChanged(int);
 
 
 protected:
