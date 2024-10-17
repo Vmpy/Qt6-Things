@@ -12,6 +12,7 @@
 #include "projtreewidget.h"
 #include "picshow.h"
 #include <QLabel>
+#include <QTime>
 
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow),_mediaPlayer(new MyMediaPlayer(this))
@@ -51,11 +52,30 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _actVolumeDown = new QAction(QIcon(":/icon/volume-down.svg"),tr(""),this);
     _actVolumeUp = new QAction(QIcon(":/icon/volume-up.svg"),tr(""),this);
 
-    _sliderVolume = new QSlider(Qt::Horizontal,this);
+    _sliderVolume = new QSlider(Qt::Vertical,this);
+    _sliderVolume->setInvertedAppearance(true);
     _sliderVolume->setMaximumWidth(200);
     _sliderVolume->setRange(0,100);
     _sliderVolume->setValue(100);
 
+    _sliderDuration = new QSlider(Qt::Vertical,this);
+    _sliderDuration->setMaximumWidth(300);
+    _sliderDuration->setInvertedAppearance(true);
+    _labelDuration = new QLabel(this);
+    _labelDuration->setText("0:00");
+    _labelDuration->setStyleSheet("QLabel {color:rgb(231,231,231);}");
+    _labelPosition = new QLabel(this);
+    _labelPosition->setText("0:00");
+    _labelPosition->setStyleSheet("QLabel {color:rgb(231,231,231);}");
+
+    connect(_mediaPlayer,&MyMediaPlayer::sigDurationChanged,this,&MainWindow::slotSetDurationSlider);
+    connect(_mediaPlayer,&MyMediaPlayer::sigPositionChanged,this,&MainWindow::slotSetPositionSlider);
+    connect(_sliderDuration,&QSlider::sliderReleased,[this]{
+        int val = this->_sliderDuration->value();
+        emit sigPostionChanged(val);
+    });
+
+    connect(this,&MainWindow::sigPostionChanged,_mediaPlayer,&MyMediaPlayer::slotSetPosition);
     ui->toolBar->addAction(_actMusic);
     ui->toolBar->addAction(_actMusicSwitch);
     ui->toolBar->addSeparator();
@@ -71,7 +91,10 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->toolBar->addWidget(_sliderVolume);
     ui->toolBar->addAction(_actVolumeUp);
     ui->toolBar->addSeparator();
-
+    ui->toolBar->addWidget(_labelPosition);
+    ui->toolBar->addWidget(_sliderDuration);
+    ui->toolBar->addWidget(_labelDuration);
+    ui->toolBar->addSeparator();
 
     connect(_actMusicPlayPrev,&QAction::triggered,this,&MainWindow::slotPrevMusicClicked);
     connect(_actMusicPlay,&QAction::triggered,this,&MainWindow::slotPlayClicked);
@@ -92,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _labelPlayingMusic = new QLabel(this);
     _labelPlayingMusic->setText(tr("当前曲目:")+_mediaPlayer->getPlayingName());
     _labelPlayingMusic->setMinimumWidth(150);
-    ui->statusbar->addPermanentWidget(_labelPlayingMusic);
+    ui->statusbar->addWidget(_labelPlayingMusic);
     connect(_mediaPlayer,&MyMediaPlayer::sigPlayMusicName,this,&MainWindow::slotSetPlayMusicName);
     _labelPlayingMusic->setStyleSheet("QLabel {color:rgb(231,231,231);}");
 
@@ -100,21 +123,21 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _labelPlayingMode->setText(tr("播放模式:")+_mediaPlayer->getPlayingModeString());
     _labelPlayingMode->setMinimumWidth(100);
     connect(_mediaPlayer,&MyMediaPlayer::sigPlayMusicMode,this,&MainWindow::slotSetPlayMusicMode);
-    ui->statusbar->addPermanentWidget(_labelPlayingMode);
+    ui->statusbar->addWidget(_labelPlayingMode);
     _labelPlayingMode->setStyleSheet("QLabel {color:rgb(231,231,231);}");
 
     _labelPlayingState = new QLabel(this);
     _labelPlayingState->setText(tr("播放状态:"));
     _labelPlayingState->setMinimumWidth(100);
     connect(_mediaPlayer,&MyMediaPlayer::sigPlayMusicState,this,&MainWindow::slotSetPlayMusicState);
-    ui->statusbar->addPermanentWidget(_labelPlayingState);
+    ui->statusbar->addWidget(_labelPlayingState);
     _labelPlayingState->setStyleSheet("QLabel {color:rgb(231,231,231);}");
 
     _labelPlaylistSize = new QLabel(this);
     _labelPlaylistSize->setText(tr("导入曲目数:")+QString::number(_mediaPlayer->getPlaylistSize()) + tr("首"));
-    _labelPlaylistSize->setMinimumWidth(100);
+    //_labelPlaylistSize->setMinimumWidth(100);
     connect(_mediaPlayer,&MyMediaPlayer::sigPlayMusicSize,this,&MainWindow::slotSetPlayMusicSize);
-    ui->statusbar->addPermanentWidget(_labelPlaylistSize);
+    ui->statusbar->addWidget(_labelPlaylistSize);
     _labelPlaylistSize->setStyleSheet("QLabel {color:rgb(231,231,231);}");
 
     //连接音乐操作菜单
@@ -368,12 +391,115 @@ void MainWindow::slotNextMusicClicked()
 void MainWindow::slotSetOrientation(Qt::Orientation newOri)
 {
     _sliderVolume->setOrientation(newOri);
+    _sliderDuration->setOrientation(newOri);
     if(newOri == Qt::Vertical)
     {
         _sliderVolume->setInvertedAppearance(true);
+        _sliderDuration->setInvertedAppearance(true);
     }
     else
     {
         _sliderVolume->setInvertedAppearance(false);
+        _sliderDuration->setInvertedAppearance(false);
     }
+}
+
+void MainWindow::slotSetPositionSlider(qint64 position)
+{
+    int secsPos = position/1000;
+
+    if(!_sliderDuration->isSliderDown())
+    {
+        _sliderDuration->setSliderPosition(secsPos);
+    }
+    int HH,MM,SS;
+    QString strPos;
+
+    HH = secsPos/3600;
+    MM = (secsPos - (HH*3600))/60;
+    SS = (secsPos - (HH*3600) - (MM*60));
+    if(HH)
+    {
+        strPos += QString::number(HH);
+        strPos += ":";
+    }
+    if(MM)
+    {
+        if(MM < 10)
+        {
+            strPos += "0";
+        }
+        strPos += QString::number(MM);
+        strPos += ":";
+    }
+    else
+    {
+        strPos += "0";
+        strPos += ":";
+    }
+    if(SS)
+    {
+        if(SS < 10)
+        {
+            strPos += "0";
+        }
+        strPos += QString::number(SS);
+    }
+    else
+    {
+        strPos += "00";
+    }
+    if(_labelPosition->text() != strPos)
+    {
+        _labelPosition->setText(strPos);
+    }
+}
+
+void MainWindow::slotSetDurationSlider(qint64 duration)
+{
+    int secsDuration = duration/1000;
+    if(_sliderDuration->maximum() != secsDuration)
+    {
+        _sliderDuration->setRange(0,secsDuration);
+        _sliderDuration->setSliderPosition(0);
+    }
+
+    int HH,MM,SS;
+    QString strDuration;
+
+    HH = secsDuration/3600;
+    MM = (secsDuration - (HH*3600))/60;
+    SS = (secsDuration - (HH*3600) - (MM*60));
+    if(HH)
+    {
+        strDuration += QString::number(HH);
+        strDuration += ":";
+    }
+    if(MM)
+    {
+        if(MM < 10)
+        {
+            strDuration += "0";
+        }
+        strDuration += QString::number(MM);
+        strDuration += ":";
+    }
+    else
+    {
+        strDuration += "0";
+        strDuration += ":";
+    }
+    if(SS)
+    {
+        if(SS < 10)
+        {
+            strDuration += "0";
+        }
+        strDuration += QString::number(SS);
+    }
+    else
+    {
+        strDuration += "00";
+    }
+    _labelDuration->setText(strDuration);
 }
