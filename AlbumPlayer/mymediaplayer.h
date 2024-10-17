@@ -44,6 +44,7 @@ private:
     QAudioOutput *_audioOutput;
     int _currentIndex = -1;
     int _volume = 100;
+    int _position = 0;
     bool _masterSwitch = false;
     bool _stopByHand = false;
     MyMediaPlayerlistMode _playMode = MyMediaPlayerlistMode::CurrentItemInLoop;
@@ -51,12 +52,17 @@ private:
 
 private slots:
     void slotPlayStateChanged(QMediaPlayer::PlaybackState newState);
+    void slotPositionChanged(qint64 pos);
+public slots:
+    void slotSetPosition(int pos);
 
 signals:
     void sigPlayMusicName(const QString&);  //通知状态栏标签切换曲目名称
     void sigPlayMusicMode(const QString&);  //通知状态栏标签切换播放模式名称
     void sigPlayMusicState(const QString&); //通知状态栏标签切换播放状态名称
     void sigPlayMusicSize(int); //通知状态栏切换曲库数目
+    void sigDurationChanged(qint64); //通知状态栏切换曲库数目
+    void sigPositionChanged(qint64);
 };
 
 #endif // MYMEDIAPLAYER_H
