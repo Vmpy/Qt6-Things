@@ -53,8 +53,11 @@ private:
 private slots:
     void slotPlayStateChanged(QMediaPlayer::PlaybackState newState);
     void slotPositionChanged(qint64 pos);
+
 public slots:
     void slotSetPosition(int pos);
+    void slotVolumeUpTriggered();
+    void slotVolumeDownTriggered();
 
 signals:
     void sigPlayMusicName(const QString&);  //通知状态栏标签切换曲目名称
@@ -63,6 +66,8 @@ signals:
     void sigPlayMusicSize(int); //通知状态栏切换曲库数目
     void sigDurationChanged(qint64); //通知状态栏切换曲库数目
     void sigPositionChanged(qint64);
+    void sigSliderVolumeChanged(int);
+    void sigVolumeTextChanged(int);
 };
 
 #endif // MYMEDIAPLAYER_H
