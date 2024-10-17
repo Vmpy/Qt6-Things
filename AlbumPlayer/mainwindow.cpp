@@ -13,6 +13,7 @@
 #include "picshow.h"
 #include <QLabel>
 #include <QTime>
+#include <QPushButton>
 
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow),_mediaPlayer(new MyMediaPlayer(this))
@@ -49,14 +50,30 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _actMusicPlayNext = new QAction(QIcon(":/icon/next-music.svg"),tr("下一曲"),this);
     _actMusicPlayMode = new QAction(QIcon(":/icon/CurrentItemInLoop.svg"),tr("单曲循环"),this);
 
-    _actVolumeDown = new QAction(QIcon(":/icon/volume-down.svg"),tr(""),this);
-    _actVolumeUp = new QAction(QIcon(":/icon/volume-up.svg"),tr(""),this);
+    QSizePolicy sizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    _btnVolumeDown = new QPushButton(QIcon(":/icon/volume-down.svg"),tr(""),this);
+    _btnVolumeDown->setAutoRepeat(true);
+    _btnVolumeDown->setFlat(true);
+    _btnVolumeDown->setSizePolicy(sizePolicy);
+    _btnVolumeUp = new QPushButton(QIcon(":/icon/volume-up.svg"),tr(""),this);
+    _btnVolumeUp->setAutoRepeat(true);
+    _btnVolumeUp->setFlat(true);
+    _btnVolumeUp->setSizePolicy(sizePolicy);
+
+    _labelVolume = new QLabel(this);
+    _labelVolume->setText("100%");
+    _labelVolume->setStyleSheet("QLabel {color:rgb(231,231,231);}");
+
+    connect(_btnVolumeDown,&QPushButton::clicked,_mediaPlayer,&MyMediaPlayer::slotVolumeDownTriggered);
+    connect(_btnVolumeUp,&QPushButton::clicked,_mediaPlayer,&MyMediaPlayer::slotVolumeUpTriggered);
 
     _sliderVolume = new QSlider(Qt::Vertical,this);
     _sliderVolume->setInvertedAppearance(true);
-    _sliderVolume->setMaximumWidth(200);
+    _sliderVolume->setMaximumWidth(150);
     _sliderVolume->setRange(0,100);
     _sliderVolume->setValue(100);
+    connect(_mediaPlayer,&MyMediaPlayer::sigSliderVolumeChanged,_sliderVolume,&QSlider::setValue);
+    connect(_mediaPlayer,&MyMediaPlayer::sigVolumeTextChanged,this,&MainWindow::slotVolumeTextChanged);
 
     _sliderDuration = new QSlider(Qt::Vertical,this);
     _sliderDuration->setMaximumWidth(300);
@@ -87,9 +104,10 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->toolBar->addSeparator();
     ui->toolBar->addAction(_actMusicPlayMode);
     ui->toolBar->addSeparator();
-    ui->toolBar->addAction(_actVolumeDown);
+    ui->toolBar->addWidget(_btnVolumeDown);
     ui->toolBar->addWidget(_sliderVolume);
-    ui->toolBar->addAction(_actVolumeUp);
+    ui->toolBar->addWidget(_btnVolumeUp);
+    ui->toolBar->addWidget(_labelVolume);
     ui->toolBar->addSeparator();
     ui->toolBar->addWidget(_labelPosition);
     ui->toolBar->addWidget(_sliderDuration);
@@ -502,4 +520,18 @@ void MainWindow::slotSetDurationSlider(qint64 duration)
         strDuration += "00";
     }
     _labelDuration->setText(strDuration);
+}
+
+void MainWindow::slotVolumeTextChanged(int vol)
+{
+    QString strVolume = QString::number(vol) + "%";
+    if(vol != 100)  //保持固定长度，不让toolBar自动调整
+    {
+        strVolume += "  ";
+    }
+    if(vol <= 9)
+    {
+        strVolume += "  ";
+    }
+    _labelVolume->setText(strVolume);
 }
