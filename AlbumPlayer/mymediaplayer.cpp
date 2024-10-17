@@ -6,6 +6,8 @@ MyMediaPlayer::MyMediaPlayer(QObject *parent):
 {
     connect(_player,&QMediaPlayer::playbackStateChanged,this,
             &MyMediaPlayer::slotPlayStateChanged);
+    connect(_player,&QMediaPlayer::durationChanged,this,&MyMediaPlayer::sigDurationChanged);
+    connect(_player,&QMediaPlayer::positionChanged,this,&MyMediaPlayer::sigPositionChanged);
 
     _player->setAudioOutput(_audioOutput);
     _audioOutput->setVolume(1.0f);
@@ -281,4 +283,16 @@ void MyMediaPlayer::slotPlayStateChanged(QMediaPlayer::PlaybackState newState)
             break;
         }
     }
+}
+
+void MyMediaPlayer::slotPositionChanged(qint64 pos)
+{
+    qint64 position = pos*1000;
+    _player->setPosition(position);
+}
+
+void MyMediaPlayer::slotSetPosition(int pos)
+{
+    qint64 msPos = pos*1000;
+    _player->setPosition(msPos);
 }
