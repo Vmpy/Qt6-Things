@@ -123,6 +123,7 @@ void MyMediaPlayer::setVolume(int vol)
     float volf = vol*0.01f;
     _audioOutput->setVolume(volf);
     _volume = vol;
+    emit sigVolumeTextChanged(_volume);
 }
 
 int MyMediaPlayer::getVolume()
@@ -295,4 +296,26 @@ void MyMediaPlayer::slotSetPosition(int pos)
 {
     qint64 msPos = pos*1000;
     _player->setPosition(msPos);
+}
+
+void MyMediaPlayer::slotVolumeUpTriggered()
+{
+    int newVol = _volume+1;
+    if(newVol > 100)
+    {
+        newVol = 100;
+    }
+    setVolume(newVol);
+    emit sigSliderVolumeChanged(newVol);
+}
+
+void MyMediaPlayer::slotVolumeDownTriggered()
+{
+    int newVol = _volume-1;
+    if(newVol < 0 )
+    {
+        newVol = 0;
+    }
+    setVolume(newVol);
+    emit sigSliderVolumeChanged(newVol);
 }
