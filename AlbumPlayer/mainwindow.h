@@ -49,6 +49,9 @@ private:
     QAction *_actVolumeDown;
     QAction *_actVolumeUp;
     QSlider *_sliderVolume;
+    QSlider *_sliderDuration;
+    QLabel *_labelPosition;
+    QLabel *_labelDuration;
 
 private slots:
     void slotCreateProj(bool);
@@ -70,11 +73,15 @@ public slots:
     void slotNextMusicClicked();
 
     void slotSetOrientation(Qt::Orientation newOrientation);
+    void slotSetPositionSlider(qint64 position);
+    void slotSetDurationSlider(qint64 duration);
+
 
 protected:
     void resizeEvent(QResizeEvent *e) override;
 
 signals:
     void sigOpenProj(const QString&);
+    void sigPostionChanged(int);
 };
 #endif // MAINWINDOW_H
