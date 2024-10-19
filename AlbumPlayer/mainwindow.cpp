@@ -50,6 +50,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _actMusicPlayNext = new QAction(QIcon(":/icon/next-music.svg"),tr("下一曲"),this);
     _actMusicPlayMode = new QAction(QIcon(":/icon/CurrentItemInLoop.svg"),tr("单曲循环"),this);
 
+    _actMusicPlay->setEnabled(true);
+    _actMusicPause->setEnabled(false);
+
     QSizePolicy sizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     _btnVolumeDown = new QPushButton(QIcon(":/icon/volume-down.svg"),tr(""),this);
     _btnVolumeDown->setAutoRepeat(true);
@@ -360,9 +363,13 @@ void MainWindow::slotSetMusicSwitch(bool checked)
     }
     if(!checked)
     {
+        _actMusicPlay->setEnabled(true);
+        _actMusicPause->setEnabled(false);
         _mediaPlayer->stopPlay();
         return;
     }
+    _actMusicPlay->setEnabled(false);
+    _actMusicPause->setEnabled(true);
     _mediaPlayer->startPlay();
 }
 
@@ -372,7 +379,8 @@ void MainWindow::slotPlayClicked()
     {
         return;
     }
-
+    _actMusicPlay->setEnabled(false);
+    _actMusicPause->setEnabled(true);
     _mediaPlayer->startPlay();
 }
 
@@ -382,7 +390,8 @@ void MainWindow::slotPauseClicked()
     {
         return;
     }
-
+    _actMusicPlay->setEnabled(true);
+    _actMusicPause->setEnabled(false);
     _mediaPlayer->pausePlay();
 }
 
