@@ -50,5 +50,7 @@
         <file>icon/Loop.svg</file>
         <file>icon/Random.svg</file>
         <file>icon/Sequential.svg</file>
+        <file>icon/volume-down.svg</file>
+        <file>icon/volume-up.svg</file>
     </qresource>
 </RCC>
