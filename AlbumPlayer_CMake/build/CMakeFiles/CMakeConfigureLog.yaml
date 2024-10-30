@@ -1,0 +1,404 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Windows - 10.0.22631 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+      鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:18銆?
+      
+      鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\3.31.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
+      PrepareForBuild:
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
+        宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\CompilerIdCXX.tlog\\鈥濄€?
+      InitializeBuildStatus:
+        姝ｅ湪鍒涘缓鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+      ClCompile:
+        D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\3.31.0-rc1\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+      宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\3.31.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      
+      宸叉垚鍔熺敓鎴愩€?
+          0 涓鍛?
+          0 涓敊璇?
+      
+      宸茬敤鏃堕棿 00:00:00.78
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/3.31.0-rc1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-lcxi4t"
+      binary: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-lcxi4t"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-lcxi4t'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b132c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+        鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:19銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lcxi4t\\cmTC_b132c.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b132c.dir\\Debug\\鈥濄€?
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lcxi4t\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b132c.dir\\Debug\\cmTC_b132c.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_b132c.dir\\Debug\\cmTC_b132c.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b132c.dir\\Debug\\cmTC_b132c.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b132c.dir\\Debug\\\\" /Fd"cmTC_b132c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34123 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b132c.dir\\Debug\\\\" /Fd"cmTC_b132c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lcxi4t\\Debug\\cmTC_b132c.exe" /INCREMENTAL /ILK:"cmTC_b132c.dir\\Debug\\cmTC_b132c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-lcxi4t/Debug/cmTC_b132c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-lcxi4t/Debug/cmTC_b132c.lib" /MACHINE:X64  /machine:x64 cmTC_b132c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_b132c.vcxproj -> D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lcxi4t\\Debug\\cmTC_b132c.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_b132c.dir\\Debug\\cmTC_b132c.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b132c.dir\\Debug\\cmTC_b132c.tlog\\cmTC_b132c.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lcxi4t\\cmTC_b132c.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.77
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "D:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.41.34123.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:27 (_qt_internal_find_third_party_dependencies)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:124 (include)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-fl38da"
+      binary: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-fl38da"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-fl38da'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_cb0b3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+        鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:20銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\cmTC_cb0b3.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_cb0b3.dir\\Debug\\鈥濄€?
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_cb0b3.dir\\Debug\\cmTC_cb0b3.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_cb0b3.dir\\Debug\\cmTC_cb0b3.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_cb0b3.dir\\Debug\\cmTC_cb0b3.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_cb0b3.dir\\Debug\\\\" /Fd"cmTC_cb0b3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\src.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34123 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_cb0b3.dir\\Debug\\\\" /Fd"cmTC_cb0b3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\src.cxx"
+          src.cxx
+        D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\src.cxx(1,10): error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory [D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\cmTC_cb0b3.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\cmTC_cb0b3.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\cmTC_cb0b3.vcxproj鈥?榛樿鐩爣) (1) ->
+        (ClCompile 鐩爣) -> 
+          D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\src.cxx(1,10): error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory [D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fl38da\\cmTC_cb0b3.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.47
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:27 (_qt_internal_find_third_party_dependencies)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:124 (include)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-pcvnka"
+      binary: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-pcvnka"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-pcvnka'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_abba1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+        鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:21銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\cmTC_abba1.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_abba1.dir\\Debug\\鈥濄€?
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_abba1.dir\\Debug\\cmTC_abba1.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_abba1.dir\\Debug\\cmTC_abba1.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_abba1.dir\\Debug\\cmTC_abba1.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_abba1.dir\\Debug\\\\" /Fd"cmTC_abba1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\CheckFunctionExists.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34123 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_abba1.dir\\Debug\\\\" /Fd"cmTC_abba1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\CheckFunctionExists.cxx"
+          CheckFunctionExists.cxx
+        Link:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\Debug\\cmTC_abba1.exe" /INCREMENTAL /ILK:"cmTC_abba1.dir\\Debug\\cmTC_abba1.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-pcvnka/Debug/cmTC_abba1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-pcvnka/Debug/cmTC_abba1.lib" /MACHINE:X64  /machine:x64 cmTC_abba1.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減threads.lib鈥?[D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\cmTC_abba1.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\cmTC_abba1.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\cmTC_abba1.vcxproj鈥?榛樿鐩爣) (1) ->
+        (Link 鐩爣) -> 
+          LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減threads.lib鈥?[D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pcvnka\\cmTC_abba1.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.64
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:27 (_qt_internal_find_third_party_dependencies)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:124 (include)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-b2xewt"
+      binary: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-b2xewt"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-b2xewt'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a2b7c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+        鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:22銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\cmTC_a2b7c.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_a2b7c.dir\\Debug\\鈥濄€?
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_a2b7c.dir\\Debug\\cmTC_a2b7c.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_a2b7c.dir\\Debug\\cmTC_a2b7c.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_a2b7c.dir\\Debug\\cmTC_a2b7c.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_a2b7c.dir\\Debug\\\\" /Fd"cmTC_a2b7c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\CheckFunctionExists.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34123 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_a2b7c.dir\\Debug\\\\" /Fd"cmTC_a2b7c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\CheckFunctionExists.cxx"
+          CheckFunctionExists.cxx
+        Link:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\Debug\\cmTC_a2b7c.exe" /INCREMENTAL /ILK:"cmTC_a2b7c.dir\\Debug\\cmTC_a2b7c.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-b2xewt/Debug/cmTC_a2b7c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-b2xewt/Debug/cmTC_a2b7c.lib" /MACHINE:X64  /machine:x64 cmTC_a2b7c.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減thread.lib鈥?[D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\cmTC_a2b7c.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\cmTC_a2b7c.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\cmTC_a2b7c.vcxproj鈥?榛樿鐩爣) (1) ->
+        (Link 鐩爣) -> 
+          LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減thread.lib鈥?[D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b2xewt\\cmTC_a2b7c.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.63
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/FindWrapAtomic.cmake:36 (check_cxx_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake:33 (_qt_internal_find_third_party_dependencies)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:45 (include)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:111 (find_dependency)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:42 (_qt_internal_find_qt_dependencies)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:43 (include)"
+      - "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:169 (find_package)"
+      - "CMakeLists.txt:13 (find_package)"
+    checks:
+      - "Performing Test HAVE_STDATOMIC"
+    directories:
+      source: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-xh6uoy"
+      binary: "D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-xh6uoy"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;D:/Qt/6.7.3/msvc2022_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "HAVE_STDATOMIC"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-xh6uoy'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b1ce4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.9+a69bbaaf5
+        鐢熸垚鍚姩鏃堕棿涓?2024/10/31 0:31:23銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\cmTC_b1ce4.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b1ce4.dir\\Debug\\鈥濄€?
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_b1ce4.dir\\Debug\\cmTC_b1ce4.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_b1ce4.dir\\Debug\\cmTC_b1ce4.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b1ce4.dir\\Debug\\cmTC_b1ce4.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_b1ce4.dir\\Debug\\\\" /Fd"cmTC_b1ce4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\src.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34123 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_b1ce4.dir\\Debug\\\\" /Fd"cmTC_b1ce4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\src.cxx"
+          src.cxx
+        Link:
+          D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\Debug\\cmTC_b1ce4.exe" /INCREMENTAL /ILK:"cmTC_b1ce4.dir\\Debug\\cmTC_b1ce4.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-xh6uoy/Debug/cmTC_b1ce4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/CMakeScratch/TryCompile-xh6uoy/Debug/cmTC_b1ce4.lib" /MACHINE:X64  /machine:x64 cmTC_b1ce4.dir\\Debug\\src.obj
+          cmTC_b1ce4.vcxproj -> D:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\Debug\\cmTC_b1ce4.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_b1ce4.dir\\Debug\\cmTC_b1ce4.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_b1ce4.dir\\Debug\\cmTC_b1ce4.tlog\\cmTC_b1ce4.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\GitCode\\Qt6-Things\\AlbumPlayer_CMake\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xh6uoy\\cmTC_b1ce4.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.86
+        
+      exitCode: 0
+...

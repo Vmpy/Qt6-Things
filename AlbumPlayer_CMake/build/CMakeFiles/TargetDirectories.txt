@@ -1,0 +1,3 @@
+D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/AlbumPlayer_CMake.dir
+D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/ALL_BUILD.dir
+D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,10 @@
+^D:\GITCODE\QT6-THINGS\ALBUMPLAYER_CMAKE\BUILD\CMAKEFILES\73FE00E30951CBF3EB335B9717A5B104\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/GitCode/Qt6-Things/AlbumPlayer_CMake -BD:/GitCode/Qt6-Things/AlbumPlayer_CMake/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/GitCode/Qt6-Things/AlbumPlayer_CMake/build/AlbumPlayer_CMake.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
