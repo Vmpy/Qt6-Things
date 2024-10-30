@@ -1,0 +1,212 @@
+MainWindow{
+    background-color:rgb(47,48,47);
+}
+
+QMenuBar{
+    color:rgb(245,245,245);
+    background-color:rgb(47,48,47);
+}
+
+QMenu{
+    color:rgb(245,245,245);
+    background-color:rgb(55,55,55);
+}
+
+QMenuBar::item:selected{
+    background-color:rgb(80,80,80);
+}
+
+QMenu::item:selected{
+    background-color:rgb(39,96,154);
+}
+
+QWizard {
+    color:rgb(245,245,245);
+    background-color:rgb(47,48,47);
+}
+
+QWizardPage {
+    color:rgb(245,245,245);
+    background-color:rgb(47,48,47);
+}
+
+ProjTree {
+    border-color: #9F9F9F;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    padding-right: 10px;
+}
+
+QHeaderView::section {
+    height:25px;
+    color:white;
+    background-color: rgb(46, 47, 48);
+    border-left:0px solid gray;
+    border-right:0px solid gray;
+    border-top:0px solid gray;
+    border-bottom:1px solid gray;
+}
+
+
+QTreeView {
+    color:rgb(231,231,231);
+    background-color:rgb(46,47,48);
+    border: 0px;
+}
+
+QTreeView::item:hover {
+    background: rgb(38,95,153);
+}
+
+QTreeView::item:selected {
+    background: rgb(38,95,153);
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:has-children:closed:has-siblings {
+    border-image: none;
+    image: url(:/icon/plus.svg);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(:/icon/minus.svg);
+}
+
+PicShow {
+    border-color: #9F9F9F;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    padding: 10px;
+    background: rgb(64,68,68);
+}
+
+#nextBtn,#prevBtn,#slideprevBtn,#slidenextBtn,#closeBtn,#playBtn{
+    border:0px;
+}
+
+SlideShowDialog {
+    color: rgb(231,231,231);
+    background-color:rgb(46,47,48);
+}
+
+#prelistWidget {
+    color: rgb(231,231,231);
+    background-color:rgb(46,47,48);
+    border:0px;
+}
+
+#prelistWidget::item:hover {
+    background: rgb(38,95,153);
+}
+
+#prelistWidget::item:selected {
+    background: rgb(38,95,153);
+    border: 2px solid #ffffff;
+}
+
+#sildeprevWidget {
+    margin-left: 10px;
+}
+
+#sildenextWidget {
+    margin-right: 10px;
+}
+
+#prelistWidget::item:selected:active {
+    border: 2px solid #ffffff;
+}
+
+/*仿照QQ音乐进度条*/
+/*horizontal ：水平QSlider*/
+QSlider::groove:horizontal {
+    border: 0px solid #bbb;
+}
+
+/*1.滑动过的槽设计参数*/
+QSlider::sub-page:horizontal {
+     /*槽颜色*/
+    background: rgb(90,49,255);
+     /*外环区域倒圆角度*/
+    border-radius: 2px;
+     /*上遮住区域高度*/
+    margin-top:8px;
+     /*下遮住区域高度*/
+    margin-bottom:8px;
+    /*width在这里无效，不写即可*/
+}
+
+/*2.未滑动过的槽设计参数*/
+QSlider::add-page:horizontal {
+    /*槽颜色*/
+    background: rgb(255,255, 255);
+    /*外环大小0px就是不显示，默认也是0*/
+    border: 0px solid #777;
+    /*外环区域倒圆角度*/
+    border-radius: 2px;
+     /*上遮住区域高度*/
+    margin-top:9px;
+     /*下遮住区域高度*/
+    margin-bottom:9px;
+}
+
+/*3.平时滑动的滑块设计参数*/
+QSlider::handle:horizontal {
+    /*滑块颜色*/
+    background: rgb(193,204,208);
+    /*滑块的宽度*/
+    width: 5px;
+    /*滑块外环为1px，再加颜色*/
+    border: 1px solid rgb(193,204,208);
+     /*滑块外环倒圆角度*/
+    border-radius: 2px;
+     /*上遮住区域高度*/
+    margin-top:6px;
+     /*下遮住区域高度*/
+    margin-bottom:6px;
+}
+
+/*4.手动拉动时显示的滑块设计参数*/
+QSlider::handle:horizontal:hover {
+    /*滑块颜色*/
+    background: rgb(193,204,208);
+    /*滑块的宽度*/
+    width: 10px;
+    /*滑块外环为1px，再加颜色*/
+    border: 1px solid rgb(193,204,208);
+     /*滑块外环倒圆角度*/
+    border-radius: 5px;
+     /*上遮住区域高度*/
+    margin-top:4px;
+     /*下遮住区域高度*/
+    margin-bottom:4px;
+}
+
+QSlider::add-page:vertical
+{
+    width:5px;
+    border-radius: 2px;
+}
+
+QSlider::sub-page:vertical
+{
+    background-color: rgb(90,49,255);
+    width:5px;
+    border-radius: 2px;
+}
+
+QSlider::groove:vertical
+{
+    background:transparent;
+    width:6px;
+}
+
+QSlider::handle:vertical
+{
+    height: 14px;
+    width: 14px;
+    margin: 0px -4px 0px -4px;
+    border-radius: 7px;
+    background: white;
+}
