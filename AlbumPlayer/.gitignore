@@ -1,0 +1,36 @@
+# Qt build outputs
+build/
+
+# qmake generated files
+Makefile
+*.pro.user
+*.pro.user.*
+
+# Qt Creator
+.qtcreator/
+
+# Compiled objects
+*.o
+*.obj
+
+# MOC generated files
+moc_*.cpp
+moc_*.h
+
+# UI generated headers
+ui_*.h
+
+# Resource compiled files
+qrc_*.cpp
+
+# Debug/release directories
+debug/
+release/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
