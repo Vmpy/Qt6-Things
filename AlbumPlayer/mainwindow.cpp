@@ -161,6 +161,11 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->statusbar->addWidget(_labelPlaylistSize);
     _labelPlaylistSize->setStyleSheet("QLabel {color:rgb(231,231,231);}");
 
+    _labelZoomPercent = new QLabel(this);
+    _labelZoomPercent->setText(tr("100%"));
+    _labelZoomPercent->setStyleSheet("QLabel {color:rgb(231,231,231);}");
+    ui->statusbar->addPermanentWidget(_labelZoomPercent);
+
     //连接音乐操作菜单
     connect(_actMusic,&QAction::triggered,this,&MainWindow::slotSetMusic);
     connect(_actMusicSwitch,&QAction::triggered,this,&MainWindow::slotSetMusicSwitch);
@@ -187,6 +192,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(projPicShow,&PicShow::sigPrevBtnClicked,projTreeWidget,&ProjTreeWidget::slotPrevBtnClicked);
     connect(projPicShow,&PicShow::sigNextBtnClicked,projTreeWidget,&ProjTreeWidget::slotNextBtnClicked);
     connect(projTreeWidget,&ProjTreeWidget::sigClearSelected,projPicShow,&PicShow::slotClearSelected);
+    connect(projPicShow,&PicShow::sigZoomChanged,this,&MainWindow::slotZoomChanged);
 }
 
 MainWindow::~MainWindow()
@@ -543,4 +549,9 @@ void MainWindow::slotVolumeTextChanged(int vol)
         strVolume += "  ";
     }
     _labelVolume->setText(strVolume);
+}
+
+void MainWindow::slotZoomChanged(int percent)
+{
+    _labelZoomPercent->setText(QString::number(percent) + "%");
 }

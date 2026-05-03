@@ -54,6 +54,7 @@ private:
     QSlider *_sliderDuration;
     QLabel *_labelPosition;
     QLabel *_labelDuration;
+    QLabel *_labelZoomPercent;
 
 private slots:
     void slotCreateProj(bool);
@@ -79,6 +80,7 @@ public slots:
     void slotSetDurationSlider(qint64 duration);
 
     void slotVolumeTextChanged(int);
+    void slotZoomChanged(int percent);
 
 
 protected:
