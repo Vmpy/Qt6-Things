@@ -72,6 +72,22 @@ ProjTreeItem *ProjTreeItem::getFirstPicChild()
     return nullptr;
 }
 
+void ProjTreeItem::setDirty(bool dirty)
+{
+    if (dirty && !_bDirty) {
+        _origName = text(0);
+        setText(0, _origName + "*");
+    } else if (!dirty && _bDirty) {
+        setText(0, _origName);
+    }
+    _bDirty = dirty;
+}
+
+bool ProjTreeItem::isDirty() const
+{
+    return _bDirty;
+}
+
 ProjTreeItem *ProjTreeItem::getLastPicChild()
 {
     if(this->type() == TreeItemType::TreeItemPic)

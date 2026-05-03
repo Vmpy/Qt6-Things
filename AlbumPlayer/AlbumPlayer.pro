@@ -12,6 +12,7 @@ SOURCES += \
     abbrlistwidget.cpp \
     abbrlistwidgetitem.cpp \
     confirmpage.cpp \
+    imginfodialog.cpp \
     main.cpp \
     mainwindow.cpp \
     mymediaplayer.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     abbrlistwidgetitem.h \
     confirmpage.h \
     const.h \
+    imginfodialog.h \
     mainwindow.h \
     mymediaplayer.h \
     opentreethread.h \

@@ -9,6 +9,7 @@
 #include "opentreethread.h"
 
 class SlideShowDialog;
+class ProjTreeItem;
 
 class ProjTreeWidget : public QTreeWidget
 {
@@ -49,10 +50,14 @@ private slots:
     void slotFinishOpenProgress(int w);
     void slotCanceledOpenProgress();
 
+    QString getSelectedItemPath();
+    ProjTreeItem* getSelectedProjTreeItem();
+
 public slots:
-    void slotOpenProj(const QString& path); //处理菜单动作“打开文件”
+    void slotOpenProj(const QString& path); //处理菜单动作”打开文件”
     void slotPrevBtnClicked();  //处理←--键点击
     void slotNextBtnClicked();  //处理--→键点击
+    void slotImageDirty(const QString& path, bool dirty);
 
 signals:
     void sigCanceledImportProgressThread();   //右键导入取消进度对话框

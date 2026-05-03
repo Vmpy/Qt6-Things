@@ -14,6 +14,7 @@
 #include <QLabel>
 #include <QTime>
 #include <QPushButton>
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow),_mediaPlayer(new MyMediaPlayer(this))
@@ -29,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     _actOpenProj = new QAction(QIcon(":/icon/openproj.png"),tr("打开项目"),this);
     _actOpenProj->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
     _menuFile->addAction(_actOpenProj);
+    _menuFile->addSeparator();
+    _actSave = new QAction(tr("保存"), this);
+    _actSave->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    _menuFile->addAction(_actSave);
 
     //创建设置菜单栏
     _menuSettings = this->menuBar()->addMenu(tr("设置(&S)"));
@@ -193,6 +198,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(projPicShow,&PicShow::sigNextBtnClicked,projTreeWidget,&ProjTreeWidget::slotNextBtnClicked);
     connect(projTreeWidget,&ProjTreeWidget::sigClearSelected,projPicShow,&PicShow::slotClearSelected);
     connect(projPicShow,&PicShow::sigZoomChanged,this,&MainWindow::slotZoomChanged);
+    connect(projPicShow,&PicShow::sigImageDirty,projTreeWidget,&ProjTreeWidget::slotImageDirty);
+    connect(_actSave,&QAction::triggered,this,&MainWindow::slotSave);
 }
 
 MainWindow::~MainWindow()
@@ -554,4 +561,18 @@ void MainWindow::slotVolumeTextChanged(int vol)
 void MainWindow::slotZoomChanged(int percent)
 {
     _labelZoomPercent->setText(QString::number(percent) + "%");
+}
+
+void MainWindow::slotSave()
+{
+    PicShow* projPicShow = dynamic_cast<PicShow*>(_picShow);
+    if (!projPicShow || !projPicShow->isImageDirty())
+        return;
+
+    QMessageBox::StandardButton btn = QMessageBox::question(
+        this, tr("保存确认"), tr("是否保存对图片的修改？"),
+        QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if (btn == QMessageBox::Yes) {
+        projPicShow->saveCroppedImage();
+    }
 }

@@ -5,6 +5,7 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 #include <QWheelEvent>
+#include <QPushButton>
 
 namespace Ui {
 class PicShow;
@@ -19,10 +20,15 @@ public:
     ~PicShow();
 
     void reloadPic();
+    bool isImageDirty() const;
+    void saveCroppedImage();
 
 protected:
     bool event(QEvent* e) override;
     void wheelEvent(QWheelEvent *event) override;
+    void contextMenuEvent(QContextMenuEvent* e) override;
+    bool eventFilter(QObject* obj, QEvent* e) override;
+    void resizeEvent(QResizeEvent* e) override;
 
 private:
     Ui::PicShow *ui;
@@ -37,6 +43,25 @@ private:
     QPointF _viewCenter;    //基准图中映射到标签中心的点
     void updateDisplayPixmap();
 
+    // 裁剪相关
+    bool _bCropping = false;
+    bool _bDirty = false;
+    bool _bSelecting = false;
+    QPointF _cropStartPos;
+    QPointF _cropEndPos;
+    QRectF _cropRect;
+    QPixmap _croppedPixmap;
+    QWidget* _cropBtnWidget = nullptr;
+    QPushButton* _btnCropApply = nullptr;
+    QPushButton* _btnCropCancel = nullptr;
+
+    void enterCropMode();
+    void exitCropMode();
+    void applyCrop();
+    QPointF labelToBasePixmap(const QPointF& labelPos) const;
+    QRectF basePixmapCropRect() const;
+    QRectF imageRect() const;
+
 public slots:
     void slotSelectedItem(const QString& path); //更新显示的图片槽函数，并更新_selectedPath
     void slotClearSelected();    //清空显示
@@ -45,6 +70,7 @@ signals:
     void sigNextBtnClicked();   //-→键点击信号
     void sigPrevBtnClicked();   //←-键点击信号
     void sigZoomChanged(int percent);
+    void sigImageDirty(const QString& path, bool dirty);
 };
 
 #endif // PICSHOW_H

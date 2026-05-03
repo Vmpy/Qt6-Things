@@ -17,12 +17,16 @@ public:
     ProjTreeItem* getNextItem();
     ProjTreeItem* getFirstPicChild();
     ProjTreeItem* getLastPicChild();
+    void setDirty(bool dirty);
+    bool isDirty() const;
 private:
     QString _name;  //文件名
     QString _path;  //现工程文件地址
     QTreeWidgetItem *_root;
     QTreeWidgetItem *_preItem;
     QTreeWidgetItem *_nextItem;
+    bool _bDirty = false;
+    QString _origName;
 };
 
 #endif // PROJTREEITEM_H

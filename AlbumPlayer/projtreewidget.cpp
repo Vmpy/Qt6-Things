@@ -5,6 +5,7 @@
 #include "slideshowdialog.h"
 #include "opentreethread.h"
 #include <QDir>
+#include <functional>
 #include <QGuiApplication>
 #include <QMenu>
 #include <QIcon>
@@ -327,6 +328,41 @@ void ProjTreeWidget::slotPrevBtnClicked()
         _selectedItem = prevItem;
         emit sigUpdateSelected(prevItem->getPath());
         this->setCurrentItem(_selectedItem);
+    }
+}
+
+QString ProjTreeWidget::getSelectedItemPath()
+{
+    if (!_selectedItem)
+        return QString();
+    auto* item = dynamic_cast<ProjTreeItem*>(_selectedItem);
+    return item ? item->getPath() : QString();
+}
+
+ProjTreeItem* ProjTreeWidget::getSelectedProjTreeItem()
+{
+    return dynamic_cast<ProjTreeItem*>(_selectedItem);
+}
+
+void ProjTreeWidget::slotImageDirty(const QString& path, bool dirty)
+{
+    std::function<void(QTreeWidgetItem*)> findAndMark = [&](QTreeWidgetItem* parent) {
+        for (int i = 0; i < parent->childCount(); ++i) {
+            auto* child = dynamic_cast<ProjTreeItem*>(parent->child(i));
+            if (child && child->getPath() == path) {
+                child->setDirty(dirty);
+                return;
+            }
+            findAndMark(parent->child(i));
+        }
+    };
+    for (int i = 0; i < topLevelItemCount(); ++i) {
+        auto* topItem = dynamic_cast<ProjTreeItem*>(topLevelItem(i));
+        if (topItem && topItem->getPath() == path) {
+            topItem->setDirty(dirty);
+            return;
+        }
+        findAndMark(topLevelItem(i));
     }
 }
 

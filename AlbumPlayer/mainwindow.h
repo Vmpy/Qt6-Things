@@ -37,6 +37,7 @@ private:
     QMenu *_menuFile;
     QAction *_actCreateProj;
     QAction *_actOpenProj;
+    QAction *_actSave;
     QMenu *_menuSettings;
     QAction *_actMusic;
     QAction *_actMusicSwitch;
@@ -59,6 +60,7 @@ private:
 private slots:
     void slotCreateProj(bool);
     void slotOpenProj(bool);
+    void slotSave();
     void slotSetPlayMusicName(const QString& name);
     void slotSetPlayMusicMode(const QString& mode);
     void slotSetPlayMusicState(const QString& state);
