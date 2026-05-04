@@ -9,7 +9,10 @@
 #include <QResizeEvent>
 #include <QHBoxLayout>
 #include <QMessageBox>
+#include <QKeyEvent>
 #include "imginfodialog.h"
+#include "drawwidget.h"
+#include "drawtoolbar.h"
 
 PicShow::PicShow(QWidget *parent)
     : QDialog(parent)
@@ -75,7 +78,7 @@ void PicShow::reloadPic()
     if (!_bDirty)
         _pixmap.load(_selectedPath);
     QSize oldBaseSize = _basePixmap.size();
-    _basePixmap = _pixmap.scaled(ui->labelPic->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    _basePixmap = computeBasePixmap();
     if (oldBaseSize.width() > 0 && oldBaseSize.height() > 0)
     {
         _viewCenter.setX(_viewCenter.x() * _basePixmap.width() / oldBaseSize.width());
@@ -255,6 +258,16 @@ void PicShow::slotSelectedItem(const QString &path)
     if (_cropBtnWidget)
         _cropBtnWidget->hide();
 
+    // 清理绘图模式
+    if (_bDrawing) {
+        if (_drawWidget) { _drawWidget->deleteLater(); _drawWidget = nullptr; }
+        if (_drawToolBar) { _drawToolBar->deleteLater(); _drawToolBar = nullptr; }
+        _bDrawing = false;
+        ui->prevBtn->setVisible(true);
+        ui->nextBtn->setVisible(true);
+        updateDisplayPixmap();  // 恢复 labelPic 显示
+    }
+
     _selectedPath = path;
     if(path.isEmpty())
     {
@@ -262,7 +275,7 @@ void PicShow::slotSelectedItem(const QString &path)
     }
 
     _pixmap.load(_selectedPath);
-    _basePixmap = _pixmap.scaled(ui->labelPic->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    _basePixmap = computeBasePixmap();
     _zoom = 1.0f;
     _viewCenter = QPointF(_basePixmap.width() / 2.0f, _basePixmap.height() / 2.0f);
     updateDisplayPixmap();
@@ -280,6 +293,16 @@ void PicShow::slotClearSelected()
     _cropRect = QRectF();
     if (_cropBtnWidget)
         _cropBtnWidget->hide();
+
+    // 清理绘图模式
+    if (_bDrawing) {
+        if (_drawWidget) { _drawWidget->deleteLater(); _drawWidget = nullptr; }
+        if (_drawToolBar) { _drawToolBar->deleteLater(); _drawToolBar = nullptr; }
+        _bDrawing = false;
+        ui->prevBtn->setVisible(true);
+        ui->nextBtn->setVisible(true);
+    }
+
     _selectedPath.clear();
     _pixmap = QPixmap();
     _basePixmap = QPixmap();
@@ -296,6 +319,8 @@ void PicShow::contextMenuEvent(QContextMenuEvent* e)
     QMenu menu(this);
     QAction* actCrop = menu.addAction(tr("裁剪"));
     connect(actCrop, &QAction::triggered, this, &PicShow::enterCropMode);
+    QAction* actDraw = menu.addAction(tr("进入绘图模式"));
+    connect(actDraw, &QAction::triggered, this, &PicShow::enterDrawMode);
     menu.addSeparator();
     QAction* actInfo = menu.addAction(tr("图片信息"));
     connect(actInfo, &QAction::triggered, this, [this] {
@@ -361,7 +386,7 @@ void PicShow::enterCropMode()
     _bSelecting = false;
     if (!_bDirty)
         _pixmap.load(_selectedPath);
-    _basePixmap = _pixmap.scaled(ui->labelPic->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    _basePixmap = computeBasePixmap();
     _zoom = 1.0f;
     _viewCenter = QPointF(_basePixmap.width() / 2.0f, _basePixmap.height() / 2.0f);
     if (_cropBtnWidget) {
@@ -382,7 +407,7 @@ void PicShow::exitCropMode()
     _bSelecting = false;
     if (_cropBtnWidget)
         _cropBtnWidget->hide();
-    _basePixmap = _pixmap.scaled(ui->labelPic->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    _basePixmap = computeBasePixmap();
     _zoom = 1.0f;
     _viewCenter = QPointF(_basePixmap.width() / 2.0f, _basePixmap.height() / 2.0f);
     updateDisplayPixmap();
@@ -451,6 +476,25 @@ QRectF PicShow::imageRect() const
                   bh * _zoom);
 }
 
+QPixmap PicShow::computeBasePixmap() const
+{
+    if (_pixmap.isNull()) return {};
+    int lw = ui->labelPic->width();
+    int lh = ui->labelPic->height();
+    int pw = _pixmap.width();
+    int ph = _pixmap.height();
+    if (lw <= 0 || lh <= 0 || pw <= 0 || ph <= 0) return {};
+
+    // 图片长宽均小于 label → 100% 原始大小
+    if (pw <= lw && ph <= lh)
+        return _pixmap;
+
+    // 图片某一维超过 label → 缩放至恰好完整显示
+    float scale = (pw > ph) ? (float)lw / pw : (float)lh / ph;
+    return _pixmap.scaled((int)(pw * scale), (int)(ph * scale),
+                          Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+}
+
 bool PicShow::isImageDirty() const
 {
     return _bDirty;
@@ -463,6 +507,121 @@ void PicShow::resizeEvent(QResizeEvent* e)
         int h = _cropBtnWidget->sizeHint().height();
         _cropBtnWidget->setGeometry(0, height() - h, width(), h);
     }
+    if (_drawWidget) {
+        _drawWidget->setGeometry(ui->labelPic->rect());
+        QRectF imgR = imageRect();
+        _drawWidget->setImage(_basePixmap, _pixmap, imgR.topLeft(), ui->labelPic->size());
+    }
+    if (_drawToolBar) {
+        int tbW = _drawToolBar->width();
+        int tbH = qMin(_drawToolBar->sizeHint().height(), height() - 20);
+        _drawToolBar->setGeometry(width() - tbW - 10, 10, tbW, tbH);
+    }
+}
+
+void PicShow::enterDrawMode()
+{
+    if (_selectedPath.isEmpty() || _bDrawing)
+        return;
+
+    _bDrawing = true;
+
+    // 创建绘图画布，覆盖整个 labelPic，透明背景，图片定位在 imageRect 位置
+    QRectF imgR = imageRect();
+    _drawWidget = new DrawWidget(ui->labelPic);
+    _drawWidget->setGeometry(ui->labelPic->rect());
+    _drawWidget->setImage(_basePixmap, _pixmap, imgR.topLeft(), ui->labelPic->size());
+    _drawWidget->show();
+    _drawWidget->raise();
+
+    // 创建浮动工具栏
+    _drawToolBar = new DrawToolBar(this);
+    int tbW = _drawToolBar->width();
+    int tbH = qMin(_drawToolBar->sizeHint().height(), height() - 20);
+    _drawToolBar->setGeometry(width() - tbW - 10, 10, tbW, tbH);
+    _drawToolBar->show();
+    _drawToolBar->raise();
+
+    // 连接工具栏信号
+    connect(_drawToolBar, &DrawToolBar::sigToolChanged, _drawWidget, &DrawWidget::setCurrentTool);
+    connect(_drawToolBar, &DrawToolBar::sigColorChanged, _drawWidget, &DrawWidget::setCurrentColor);
+    connect(_drawToolBar, &DrawToolBar::sigBrushSizeChanged, _drawWidget, &DrawWidget::setBrushSize);
+    connect(_drawToolBar, &DrawToolBar::sigUndo, _drawWidget, &DrawWidget::undo);
+    connect(_drawToolBar, &DrawToolBar::sigRedo, _drawWidget, &DrawWidget::redo);
+    connect(_drawToolBar, &DrawToolBar::sigClearAll, _drawWidget, &DrawWidget::clearAll);
+    connect(_drawToolBar, &DrawToolBar::sigSave, this, [this] {
+        if (_drawWidget && _drawWidget->isDirty()) {
+            QMessageBox::StandardButton btn = QMessageBox::question(
+                this, tr("保存绘图"), tr("是否将绘图结果保存到图片？"),
+                QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+            if (btn == QMessageBox::Yes) {
+                _pixmap = _drawWidget->mergedPixmap();
+                _basePixmap = computeBasePixmap();
+                _bDirty = true;
+                emit sigImageDirty(_selectedPath, true);
+                _drawWidget->saveToFile(_selectedPath);
+            }
+        }
+    });
+    connect(_drawToolBar, &DrawToolBar::sigExitDraw, this, &PicShow::exitDrawMode);
+    connect(_drawWidget, &DrawWidget::sigZoomChanged, this, &PicShow::sigZoomChanged);
+
+    // 隐藏浏览元素并清除 labelPic（避免背景透出原图）
+    ui->labelPic->clear();
+    ui->prevBtn->setVisible(false);
+    ui->nextBtn->setVisible(false);
+    if (_cropBtnWidget)
+        _cropBtnWidget->hide();
+
+    setFocus();
+}
+
+void PicShow::exitDrawMode()
+{
+    if (!_bDrawing)
+        return;
+
+    if (_drawWidget && _drawWidget->isDirty()) {
+        QMessageBox::StandardButton btn = QMessageBox::question(
+            this, tr("退出绘图"), tr("当前有未保存的绘图内容，是否保存？"),
+            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+        if (btn == QMessageBox::Yes) {
+            _pixmap = _drawWidget->mergedPixmap();
+            _basePixmap = computeBasePixmap();
+            _bDirty = true;
+            emit sigImageDirty(_selectedPath, true);
+            _drawWidget->saveToFile(_selectedPath);
+        } else if (btn == QMessageBox::Cancel) {
+            return;
+        }
+    }
+
+    // 销毁绘图相关
+    if (_drawWidget) {
+        _drawWidget->deleteLater();
+        _drawWidget = nullptr;
+    }
+    if (_drawToolBar) {
+        _drawToolBar->deleteLater();
+        _drawToolBar = nullptr;
+    }
+
+    _bDrawing = false;
+    ui->prevBtn->setVisible(true);
+    ui->nextBtn->setVisible(true);
+    _zoom = 1.0f;
+    _viewCenter = QPointF(_basePixmap.width() / 2.0f, _basePixmap.height() / 2.0f);
+    updateDisplayPixmap();  // 恢复 labelPic 显示
+    emit sigZoomChanged(100);
+}
+
+void PicShow::keyPressEvent(QKeyEvent* e)
+{
+    if (e->key() == Qt::Key_Escape && _bDrawing) {
+        exitDrawMode();
+        return;
+    }
+    QDialog::keyPressEvent(e);
 }
 
 void PicShow::saveCroppedImage()

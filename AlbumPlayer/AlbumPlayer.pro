@@ -12,6 +12,9 @@ SOURCES += \
     abbrlistwidget.cpp \
     abbrlistwidgetitem.cpp \
     confirmpage.cpp \
+    drawcommands.cpp \
+    drawtoolbar.cpp \
+    drawwidget.cpp \
     imginfodialog.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -35,6 +38,9 @@ HEADERS += \
     abbrlistwidgetitem.h \
     confirmpage.h \
     const.h \
+    drawcommands.h \
+    drawtoolbar.h \
+    drawwidget.h \
     imginfodialog.h \
     mainwindow.h \
     mymediaplayer.h \

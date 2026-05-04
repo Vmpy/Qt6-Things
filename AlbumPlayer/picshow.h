@@ -7,6 +7,9 @@
 #include <QWheelEvent>
 #include <QPushButton>
 
+class DrawWidget;
+class DrawToolBar;
+
 namespace Ui {
 class PicShow;
 }
@@ -29,6 +32,7 @@ protected:
     void contextMenuEvent(QContextMenuEvent* e) override;
     bool eventFilter(QObject* obj, QEvent* e) override;
     void resizeEvent(QResizeEvent* e) override;
+    void keyPressEvent(QKeyEvent* e) override;
 
 private:
     Ui::PicShow *ui;
@@ -42,6 +46,13 @@ private:
     float _zoom = 1.0f;
     QPointF _viewCenter;    //基准图中映射到标签中心的点
     void updateDisplayPixmap();
+
+    // 绘图相关
+    DrawWidget* _drawWidget = nullptr;
+    DrawToolBar* _drawToolBar = nullptr;
+    bool _bDrawing = false;
+    void enterDrawMode();
+    void exitDrawMode();
 
     // 裁剪相关
     bool _bCropping = false;
@@ -61,6 +72,7 @@ private:
     QPointF labelToBasePixmap(const QPointF& labelPos) const;
     QRectF basePixmapCropRect() const;
     QRectF imageRect() const;
+    QPixmap computeBasePixmap() const; // 按缩放规则生成基准图
 
 public slots:
     void slotSelectedItem(const QString& path); //更新显示的图片槽函数，并更新_selectedPath
