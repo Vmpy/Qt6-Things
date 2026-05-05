@@ -44,6 +44,7 @@ protected:
 private:
     void setupView();
     QGraphicsItem* findItemAt(const QPointF& scenePos);
+    void renderWatermark(const struct WatermarkConfig& cfg, const QPointF& scenePos);
     void applyMosaicAt(const QPointF& scenePos);
     void commitMosaicBlocks();
     bool isWithinImage(const QPointF& scenePos) const;
@@ -67,6 +68,8 @@ private:
     bool _drawing;
     QPointF _startScenePos;
     QGraphicsItem* _tempItem;
+    QGraphicsItem* _grabbedItem = nullptr;
+    QPointF _itemStartPos;
     QPainterPath _currentPath;
     QVector<struct MosaicBlock> _pendingMosaicBlocks;
 };

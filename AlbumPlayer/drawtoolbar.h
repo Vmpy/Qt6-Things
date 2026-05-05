@@ -35,6 +35,7 @@ private:
     QWidget* createOpButtons();
 
     QList<QPushButton*> _colorBtns;
+    QList<QToolButton*> _toolBtns;
     QActionGroup* _toolGroup;
     QSlider* _brushSlider;
     QLabel* _brushLabel;

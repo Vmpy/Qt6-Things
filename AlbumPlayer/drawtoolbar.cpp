@@ -91,7 +91,6 @@ QWidget* DrawToolBar::createToolButtons()
 
     _toolGroup = new QActionGroup(this);
     _toolGroup->setExclusive(true);
-    QList<QToolButton*> toolBtns;
 
     struct ToolDef {
         QString id, text;
@@ -103,6 +102,8 @@ QWidget* DrawToolBar::createToolButtons()
         {"text",   tr("文字")},
         {"mosaic", tr("马赛克")},
         {"eraser", tr("橡皮")},
+        {"grab",   tr("抓取")},
+        {"watermark", tr("水印")},
     };
 
     for (int i = 0; i < tools.size(); ++i) {
@@ -114,12 +115,12 @@ QWidget* DrawToolBar::createToolButtons()
         btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         if (i == 0) btn->setChecked(true);
 
-        connect(btn, &QToolButton::clicked, [this, toolBtns, btn, id = tools[i].id] {
-            for (auto* b : toolBtns) b->setChecked(b == btn);
+        connect(btn, &QToolButton::clicked, [this, btn, id = tools[i].id] {
+            for (auto* b : _toolBtns) b->setChecked(b == btn);
             _currentTool = id;
             emit sigToolChanged(id);
         });
-        toolBtns.append(btn);
+        _toolBtns.append(btn);
         layout->addWidget(btn, i / 2, i % 2);
     }
     return w;

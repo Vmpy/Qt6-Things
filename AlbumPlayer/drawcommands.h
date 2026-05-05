@@ -38,6 +38,21 @@ struct MosaicBlock {
     int blockSize;
 };
 
+class MoveItemCommand : public QUndoCommand
+{
+public:
+    MoveItemCommand(QGraphicsItem* item, const QPointF& oldPos, const QPointF& newPos,
+                    QUndoCommand* parent = nullptr);
+    void undo() override;
+    void redo() override;
+    int id() const override { return 3; }
+    bool mergeWith(const QUndoCommand* other) override;
+private:
+    QGraphicsItem* _item;
+    QPointF _oldPos;
+    QPointF _newPos;
+};
+
 class MosaicCommand : public QUndoCommand
 {
 public:

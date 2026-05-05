@@ -11,6 +11,8 @@
 #include <QGraphicsTextItem>
 #include <QPen>
 #include <QBrush>
+#include <QGraphicsPixmapItem>
+#include "watermarkdialog.h"
 
 DrawWidget::DrawWidget(QWidget *parent)
     : QWidget(parent), _currentTool("pen"), _currentColor(Qt::red), _brushSize(3),
@@ -145,9 +147,72 @@ void DrawWidget::setCurrentTool(const QString& tool)
     }
     _drawing = false;
     Qt::CursorShape cs = (_currentTool == "text") ? Qt::IBeamCursor :
-                         (_currentTool == "mosaic" || _currentTool == "eraser") ?
-                         Qt::CrossCursor : Qt::ArrowCursor;
+                         (_currentTool == "mosaic" || _currentTool == "eraser" ||
+                          _currentTool == "watermark") ?
+                         Qt::CrossCursor :
+                         (_currentTool == "grab") ? Qt::OpenHandCursor :
+                         Qt::ArrowCursor;
     _view->viewport()->setCursor(cs);
+}
+
+void DrawWidget::renderWatermark(const WatermarkConfig& cfg, const QPointF& scenePos)
+{
+    QFont f = cfg.font;
+    f.setPixelSize(cfg.fontSize);
+    QFontMetrics fm(f);
+
+    QSize textSize = fm.size(0, cfg.text);
+    if (textSize.isEmpty()) return;
+
+    int margin = cfg.shadowEnabled
+        ? qMax(qAbs(cfg.shadowOffsetX), qAbs(cfg.shadowOffsetY)) + cfg.shadowBlur + 4 : 4;
+    QSize imgSize(textSize.width() + margin * 2, textSize.height() + margin * 2);
+
+    QImage img(imgSize, QImage::Format_ARGB32_Premultiplied);
+    img.fill(Qt::transparent);
+    QPainter p(&img);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.setFont(f);
+
+    qreal baseline = margin + fm.ascent();
+
+    // Shadow pass
+    if (cfg.shadowEnabled) {
+        QColor sc = cfg.shadowColor;
+        sc.setAlpha(cfg.shadowOpacity * 255 / 100);
+        p.save();
+        if (cfg.shadowBlur > 0) {
+            p.setPen(Qt::NoPen);
+            p.setBrush(sc);
+            for (int dx = -cfg.shadowBlur; dx <= cfg.shadowBlur; dx += 2) {
+                for (int dy = -cfg.shadowBlur; dy <= cfg.shadowBlur; dy += 2) {
+                    p.drawText(QPointF(margin + cfg.shadowOffsetX + dx,
+                                       baseline + cfg.shadowOffsetY + dy),
+                               cfg.text);
+                }
+            }
+        } else {
+            p.setPen(sc);
+            p.drawText(QPointF(margin + cfg.shadowOffsetX, baseline + cfg.shadowOffsetY), cfg.text);
+        }
+        p.restore();
+    }
+
+    // Main text pass
+    QColor tc(255, 255, 255, cfg.opacity * 255 / 100);
+    p.setPen(tc);
+    p.drawText(QPointF(margin, baseline), cfg.text);
+    p.end();
+
+    QPixmap pix = QPixmap::fromImage(img);
+    auto* pixItem = new QGraphicsPixmapItem(pix);
+    pixItem->setZValue(2);
+    pixItem->setPos(scenePos - QPointF(pix.width() / 2.0, pix.height() / 2.0));
+    _scene->addItem(pixItem);
+
+    _undoStack->push(new AddItemCommand(pixItem, _scene));
+    _bDirty = true;
+    emit sigDirtyChanged(true);
 }
 
 void DrawWidget::setCurrentColor(const QColor& color)
@@ -284,6 +349,27 @@ bool DrawWidget::eventFilter(QObject* obj, QEvent* e)
     float z = currentZoom();
 
     if (e->type() == QEvent::MouseButtonPress && me->button() == Qt::LeftButton) {
+        // Grab tool: pick up an item for dragging
+        if (_currentTool == "grab") {
+            _grabbedItem = findItemAt(sp);
+            if (_grabbedItem) {
+                _itemStartPos = _grabbedItem->pos();
+                _startScenePos = sp;
+                _view->viewport()->setCursor(Qt::ClosedHandCursor);
+            }
+            return true;
+        }
+
+        // Watermark tool: click on image to set position, then dialog
+        if (_currentTool == "watermark") {
+            if (!isWithinImage(sp)) return true;
+            WatermarkDialog dlg(this);
+            if (dlg.exec() == QDialog::Accepted) {
+                renderWatermark(dlg.config(), sp);
+            }
+            return true;
+        }
+
         if (!isWithinImage(sp)) return true;
         _drawing = true;
         _startScenePos = sp;
@@ -341,6 +427,11 @@ bool DrawWidget::eventFilter(QObject* obj, QEvent* e)
         return true;
     }
 
+    if (e->type() == QEvent::MouseMove && _currentTool == "grab" && _grabbedItem) {
+        _grabbedItem->setPos(_itemStartPos + (sp - _startScenePos));
+        return true;
+    }
+
     if (e->type() == QEvent::MouseMove && _drawing) {
         QPointF clampedSp = sp;
         if (!isWithinImage(sp)) {
@@ -379,6 +470,18 @@ bool DrawWidget::eventFilter(QObject* obj, QEvent* e)
                 _mosaicItem->setPixmap(mPix);
             }
         }
+        return true;
+    }
+
+    if (e->type() == QEvent::MouseButtonRelease && me->button() == Qt::LeftButton && _currentTool == "grab" && _grabbedItem) {
+        QPointF newPos = _grabbedItem->pos();
+        if (newPos != _itemStartPos) {
+            _undoStack->push(new MoveItemCommand(_grabbedItem, _itemStartPos, newPos));
+            _bDirty = true;
+            emit sigDirtyChanged(true);
+        }
+        _grabbedItem = nullptr;
+        _view->viewport()->setCursor(Qt::OpenHandCursor);
         return true;
     }
 

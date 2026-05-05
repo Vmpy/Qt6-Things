@@ -31,6 +31,31 @@ void RemoveItemCommand::redo()
     _scene->removeItem(_item);
 }
 
+MoveItemCommand::MoveItemCommand(QGraphicsItem* item, const QPointF& oldPos, const QPointF& newPos,
+                               QUndoCommand* parent)
+    : QUndoCommand(parent), _item(item), _oldPos(oldPos), _newPos(newPos)
+{
+}
+
+void MoveItemCommand::undo()
+{
+    _item->setPos(_oldPos);
+}
+
+void MoveItemCommand::redo()
+{
+    _item->setPos(_newPos);
+}
+
+bool MoveItemCommand::mergeWith(const QUndoCommand* other)
+{
+    auto* cmd = dynamic_cast<const MoveItemCommand*>(other);
+    if (!cmd || cmd->_item != _item)
+        return false;
+    _newPos = cmd->_newPos;
+    return true;
+}
+
 MosaicCommand::MosaicCommand(const QVector<MosaicBlock>& blocks, QGraphicsScene* scene,
                              QGraphicsPixmapItem* mosaicLayer, QUndoCommand* parent)
     : QUndoCommand(parent), _blocks(blocks), _scene(scene), _mosaicLayer(mosaicLayer)

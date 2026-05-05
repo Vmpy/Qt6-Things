@@ -31,6 +31,7 @@ SOURCES += \
     projtreewidget.cpp \
     removeprojdialog.cpp \
     slideshowdialog.cpp \
+    watermarkdialog.cpp \
     wizard.cpp
 
 HEADERS += \
@@ -56,6 +57,7 @@ HEADERS += \
     projtreewidget.h \
     removeprojdialog.h \
     slideshowdialog.h \
+    watermarkdialog.h \
     wizard.h
 
 FORMS += \

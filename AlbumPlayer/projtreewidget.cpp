@@ -195,6 +195,7 @@ void ProjTreeWidget::slotFinishOpenProgress(int w)
     }
     _dialogOpenProgress->setValue(PROGRESS_MAX);
     _dialogOpenProgress->deleteLater();
+    expandAll();
 }
 
 void ProjTreeWidget::slotCanceledOpenProgress()
