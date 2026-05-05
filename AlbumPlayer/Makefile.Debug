@@ -16,7 +16,7 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -Idebug -I. -I/include -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ 
+INCPATH       = -I. -Iinc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -Idebug -I. -I/include -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
 LIBS        =        C:/Qt/6.11.0/mingw_64/lib/libQt6Multimedia.a C:/Qt/6.11.0/mingw_64/lib/libQt6Widgets.a C:/Qt/6.11.0/mingw_64/lib/libQt6Gui.a C:/Qt/6.11.0/mingw_64/lib/libQt6Network.a C:/Qt/6.11.0/mingw_64/lib/libQt6Core.a debug/AlbumPlayer_resource_res.o -lmingw32 C:/Qt/6.11.0/mingw_64/lib/libQt6EntryPoint.a -lshell32  
@@ -50,30 +50,30 @@ OBJECTS_DIR   = debug/
 
 ####### Files
 
-SOURCES       = abbrlistwidget.cpp \
-		abbrlistwidgetitem.cpp \
-		confirmpage.cpp \
-		drawcommands.cpp \
-		drawtoolbar.cpp \
-		drawwidget.cpp \
-		imginfodialog.cpp \
-		main.cpp \
-		mainwindow.cpp \
-		mymediaplayer.cpp \
-		opentreethread.cpp \
-		picanimationwidget.cpp \
-		picbutton.cpp \
-		picshow.cpp \
-		picstatebutton.cpp \
-		projsetpage.cpp \
-		projtree.cpp \
-		projtreeitem.cpp \
-		projtreethread.cpp \
-		projtreewidget.cpp \
-		removeprojdialog.cpp \
-		slideshowdialog.cpp \
-		watermarkdialog.cpp \
-		wizard.cpp debug/qrc_rc.cpp \
+SOURCES       = src/abbrlistwidget.cpp \
+		src/abbrlistwidgetitem.cpp \
+		src/confirmpage.cpp \
+		src/drawcommands.cpp \
+		src/drawtoolbar.cpp \
+		src/drawwidget.cpp \
+		src/imginfodialog.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp \
+		src/mymediaplayer.cpp \
+		src/opentreethread.cpp \
+		src/picanimationwidget.cpp \
+		src/picbutton.cpp \
+		src/picshow.cpp \
+		src/picstatebutton.cpp \
+		src/projsetpage.cpp \
+		src/projtree.cpp \
+		src/projtreeitem.cpp \
+		src/projtreethread.cpp \
+		src/projtreewidget.cpp \
+		src/removeprojdialog.cpp \
+		src/slideshowdialog.cpp \
+		src/watermarkdialog.cpp \
+		src/wizard.cpp debug/qrc_rc.cpp \
 		debug/moc_abbrlistwidget.cpp \
 		debug/moc_confirmpage.cpp \
 		debug/moc_drawtoolbar.cpp \
@@ -140,53 +140,53 @@ OBJECTS       = debug/abbrlistwidget.o \
 		debug/moc_watermarkdialog.o \
 		debug/moc_wizard.o
 
-DIST          =  abbrlistwidget.h \
-		abbrlistwidgetitem.h \
-		confirmpage.h \
-		const.h \
-		drawcommands.h \
-		drawtoolbar.h \
-		drawwidget.h \
-		imginfodialog.h \
-		mainwindow.h \
-		mymediaplayer.h \
-		opentreethread.h \
-		picanimationwidget.h \
-		picbutton.h \
-		picshow.h \
-		picstatebutton.h \
-		projsetpage.h \
-		projtree.h \
-		projtreeitem.h \
-		projtreethread.h \
-		projtreewidget.h \
-		removeprojdialog.h \
-		slideshowdialog.h \
-		watermarkdialog.h \
-		wizard.h abbrlistwidget.cpp \
-		abbrlistwidgetitem.cpp \
-		confirmpage.cpp \
-		drawcommands.cpp \
-		drawtoolbar.cpp \
-		drawwidget.cpp \
-		imginfodialog.cpp \
-		main.cpp \
-		mainwindow.cpp \
-		mymediaplayer.cpp \
-		opentreethread.cpp \
-		picanimationwidget.cpp \
-		picbutton.cpp \
-		picshow.cpp \
-		picstatebutton.cpp \
-		projsetpage.cpp \
-		projtree.cpp \
-		projtreeitem.cpp \
-		projtreethread.cpp \
-		projtreewidget.cpp \
-		removeprojdialog.cpp \
-		slideshowdialog.cpp \
-		watermarkdialog.cpp \
-		wizard.cpp
+DIST          =  inc/abbrlistwidget.h \
+		inc/abbrlistwidgetitem.h \
+		inc/confirmpage.h \
+		inc/const.h \
+		inc/drawcommands.h \
+		inc/drawtoolbar.h \
+		inc/drawwidget.h \
+		inc/imginfodialog.h \
+		inc/mainwindow.h \
+		inc/mymediaplayer.h \
+		inc/opentreethread.h \
+		inc/picanimationwidget.h \
+		inc/picbutton.h \
+		inc/picshow.h \
+		inc/picstatebutton.h \
+		inc/projsetpage.h \
+		inc/projtree.h \
+		inc/projtreeitem.h \
+		inc/projtreethread.h \
+		inc/projtreewidget.h \
+		inc/removeprojdialog.h \
+		inc/slideshowdialog.h \
+		inc/watermarkdialog.h \
+		inc/wizard.h src/abbrlistwidget.cpp \
+		src/abbrlistwidgetitem.cpp \
+		src/confirmpage.cpp \
+		src/drawcommands.cpp \
+		src/drawtoolbar.cpp \
+		src/drawwidget.cpp \
+		src/imginfodialog.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp \
+		src/mymediaplayer.cpp \
+		src/opentreethread.cpp \
+		src/picanimationwidget.cpp \
+		src/picbutton.cpp \
+		src/picshow.cpp \
+		src/picstatebutton.cpp \
+		src/projsetpage.cpp \
+		src/projtree.cpp \
+		src/projtreeitem.cpp \
+		src/projtreethread.cpp \
+		src/projtreewidget.cpp \
+		src/removeprojdialog.cpp \
+		src/slideshowdialog.cpp \
+		src/watermarkdialog.cpp \
+		src/wizard.cpp
 QMAKE_TARGET  = AlbumPlayer
 DESTDIR        = debug/ #avoid trailing-slash linebreak
 TARGET         = AlbumPlayer.exe
@@ -209,7 +209,7 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) AlbumPlayer.zip $(SOURCES) $(DIST) AlbumPlayer.pro C:/Qt/6.11.0/mingw_64/mkspecs/features/spec_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/device_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/common/sanitize.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/gcc-base.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/g++-base.conf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf C:/Qt/6.11.0/mingw_64/mkspecs/common/windows-vulkan.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/g++-win32.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/windows-desktop.conf C:/Qt/6.11.0/mingw_64/mkspecs/qconfig.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_freetype.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_libpng.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_openxr_loader.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_charts.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_charts_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_concurrent.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_core.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_core_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_dbus.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designer.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designer_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_ffmpegmediapluginimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_gui.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_gui_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_help.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_help_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsplatform.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsplatform_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssettings.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekit.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekit_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekitimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekitimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssynchronizer.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssynchronizer_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_linguist.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimedia.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediatestlibprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_network.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_network_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_opengl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_png_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_printsupport.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatch_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatchconversions_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatchgenerators_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlassetdownloader_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcompiler.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlformat_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlls_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmeta.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmeta_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlnetwork.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlnetwork_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltest.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3d.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dxr.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dxr_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fluentwinui3styleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fluentwinui3styleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickeffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickeffects_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapes.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapesdesignhelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagegenerator_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagehelpers.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagehelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_shadertools.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_sql.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_sql_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svg.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svg_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tasktree.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tasktree_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testinternals_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testlib.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uitools.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_widgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_xml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_xml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/features/qt_functions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qt_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/win32-g++/qmake.conf C:/Qt/6.11.0/mingw_64/mkspecs/features/spec_post.prf .qmake.stash C:/Qt/6.11.0/mingw_64/mkspecs/features/exclusive_builds.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/toolchain.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/default_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/default_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resolve_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/exclusive_builds_post.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/default_post.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/build_pass.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/precompile_header.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/warn_on.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/permissions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qt.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resources_functions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resources.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/moc.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/opengl.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/uic.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qmake_use.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/file_copies.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/windows.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/testcase_targets.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/exceptions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/yacc.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/lex.prf AlbumPlayer.pro rc.qrc C:/Qt/6.11.0/mingw_64/lib/Qt6Multimedia.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Widgets.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Gui.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Network.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Core.prl C:/Qt/6.11.0/mingw_64/lib/Qt6EntryPoint.prl   rc.qrc C:/Qt/6.11.0/mingw_64/mkspecs/features/data/dummy.cpp abbrlistwidget.h abbrlistwidgetitem.h confirmpage.h const.h drawcommands.h drawtoolbar.h drawwidget.h imginfodialog.h mainwindow.h mymediaplayer.h opentreethread.h picanimationwidget.h picbutton.h picshow.h picstatebutton.h projsetpage.h projtree.h projtreeitem.h projtreethread.h projtreewidget.h removeprojdialog.h slideshowdialog.h watermarkdialog.h wizard.h  abbrlistwidget.cpp abbrlistwidgetitem.cpp confirmpage.cpp drawcommands.cpp drawtoolbar.cpp drawwidget.cpp imginfodialog.cpp main.cpp mainwindow.cpp mymediaplayer.cpp opentreethread.cpp picanimationwidget.cpp picbutton.cpp picshow.cpp picstatebutton.cpp projsetpage.cpp projtree.cpp projtreeitem.cpp projtreethread.cpp projtreewidget.cpp removeprojdialog.cpp slideshowdialog.cpp watermarkdialog.cpp wizard.cpp confirmpage.ui mainwindow.ui picshow.ui projsetpage.ui projtree.ui removeprojdialog.ui slideshowdialog.ui wizard.ui    
+	$(ZIP) AlbumPlayer.zip $(SOURCES) $(DIST) AlbumPlayer.pro C:/Qt/6.11.0/mingw_64/mkspecs/features/spec_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/device_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/common/sanitize.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/gcc-base.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/g++-base.conf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/windows_vulkan_sdk.prf C:/Qt/6.11.0/mingw_64/mkspecs/common/windows-vulkan.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/g++-win32.conf C:/Qt/6.11.0/mingw_64/mkspecs/common/windows-desktop.conf C:/Qt/6.11.0/mingw_64/mkspecs/qconfig.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_freetype.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_libjpeg.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_libpng.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_ext_openxr_loader.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_charts.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_charts_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_chartsqml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_chartsqml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_concurrent.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_core.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_core_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_dbus.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_dbus_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designer.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designer_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_designercomponents_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_entrypoint_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_fb_support_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_ffmpegmediapluginimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_freetype_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_gui.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_gui_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_harfbuzz_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_help.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_help_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_jpeg_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsanimation.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsanimation_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsfolderlistmodel_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsplatform.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsplatform_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsqmlmodels_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssettings.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssettings_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssharedimage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssharedimage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekit.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekit_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekitimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labsstylekitimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssynchronizer.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labssynchronizer_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_linguist.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimedia.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediatestlibprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_network.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_network_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_opengl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_opengl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_openglwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_packetprotocol_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_png_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_printsupport.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_printsupport_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatch_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatchconversions_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qdoccatchgenerators_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlassetdownloader_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcompiler.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcompiler_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcore.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlcore_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmldebug_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmldom_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlformat_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlintegration.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmllocalstorage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlls_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmeta.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmeta_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmodels.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlmodels_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlnetwork.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlnetwork_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltest.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltest_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltoolingsettings_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmltyperegistrar_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlworkerscript_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_qmlxmllistmodel_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3d.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3d_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetimport_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dassetutils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3deffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dglslparser_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dhelpersimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3diblbaker_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticleeffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticles.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dxr.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick3dxr_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quick_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basic_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2basicstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fluentwinui3styleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fluentwinui3styleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusion_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2fusionstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imagine_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2imaginestyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2impl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2material_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2materialstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universal_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2universalstyleimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrols2windowsstyleimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickcontrolstestutilsprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2quickimpl_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickdialogs2utils_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickeffects.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickeffects_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicklayouts.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicklayouts_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickparticles_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapes.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapes_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickshapesdesignhelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktemplates2.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktestutilsprivate_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimeline.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimeline_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quicktimelineblendtrees_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimage.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimage_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagegenerator_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagehelpers.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickvectorimagehelpers_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_shadertools.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_sql.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_sql_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svg.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svg_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_svgwidgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tasktree.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tasktree_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testinternals_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testlib.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_testlib_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_tools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uiplugin.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uitools.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_uitools_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_widgets.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_widgets_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_xml.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_xml_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/modules/qt_lib_zlib_private.pri C:/Qt/6.11.0/mingw_64/mkspecs/features/qt_functions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qt_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/win32-g++/qmake.conf C:/Qt/6.11.0/mingw_64/mkspecs/features/spec_post.prf .qmake.stash C:/Qt/6.11.0/mingw_64/mkspecs/features/exclusive_builds.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/toolchain.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/default_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/default_pre.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resolve_config.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/exclusive_builds_post.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/default_post.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/build_pass.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/precompile_header.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/warn_on.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/permissions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qt.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resources_functions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/resources.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/moc.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/opengl.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/uic.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/qmake_use.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/file_copies.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/win32/windows.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/testcase_targets.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/exceptions.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/yacc.prf C:/Qt/6.11.0/mingw_64/mkspecs/features/lex.prf AlbumPlayer.pro rc.qrc C:/Qt/6.11.0/mingw_64/lib/Qt6Multimedia.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Widgets.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Gui.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Network.prl C:/Qt/6.11.0/mingw_64/lib/Qt6Core.prl C:/Qt/6.11.0/mingw_64/lib/Qt6EntryPoint.prl   rc.qrc C:/Qt/6.11.0/mingw_64/mkspecs/features/data/dummy.cpp inc/abbrlistwidget.h inc/abbrlistwidgetitem.h inc/confirmpage.h inc/const.h inc/drawcommands.h inc/drawtoolbar.h inc/drawwidget.h inc/imginfodialog.h inc/mainwindow.h inc/mymediaplayer.h inc/opentreethread.h inc/picanimationwidget.h inc/picbutton.h inc/picshow.h inc/picstatebutton.h inc/projsetpage.h inc/projtree.h inc/projtreeitem.h inc/projtreethread.h inc/projtreewidget.h inc/removeprojdialog.h inc/slideshowdialog.h inc/watermarkdialog.h inc/wizard.h  src/abbrlistwidget.cpp src/abbrlistwidgetitem.cpp src/confirmpage.cpp src/drawcommands.cpp src/drawtoolbar.cpp src/drawwidget.cpp src/imginfodialog.cpp src/main.cpp src/mainwindow.cpp src/mymediaplayer.cpp src/opentreethread.cpp src/picanimationwidget.cpp src/picbutton.cpp src/picshow.cpp src/picstatebutton.cpp src/projsetpage.cpp src/projtree.cpp src/projtreeitem.cpp src/projtreethread.cpp src/projtreewidget.cpp src/removeprojdialog.cpp src/slideshowdialog.cpp src/watermarkdialog.cpp src/wizard.cpp layout/confirmpage.ui layout/mainwindow.ui layout/picshow.ui layout/projsetpage.ui layout/projtree.ui layout/removeprojdialog.ui layout/slideshowdialog.ui layout/wizard.ui    
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug/abbrlistwidget.o debug/abbrlistwidgetitem.o debug/confirmpage.o debug/drawcommands.o debug/drawtoolbar.o debug/drawwidget.o debug/imginfodialog.o debug/main.o debug/mainwindow.o debug/mymediaplayer.o debug/opentreethread.o debug/picanimationwidget.o debug/picbutton.o debug/picshow.o debug/picstatebutton.o debug/projsetpage.o debug/projtree.o debug/projtreeitem.o debug/projtreethread.o debug/projtreewidget.o debug/removeprojdialog.o debug/slideshowdialog.o debug/watermarkdialog.o debug/wizard.o debug/qrc_rc.o debug/moc_abbrlistwidget.o debug/moc_confirmpage.o debug/moc_drawtoolbar.o debug/moc_drawwidget.o debug/moc_imginfodialog.o debug/moc_mainwindow.o debug/moc_mymediaplayer.o debug/moc_opentreethread.o debug/moc_picanimationwidget.o debug/moc_picbutton.o debug/moc_picshow.o debug/moc_picstatebutton.o debug/moc_projsetpage.o debug/moc_projtree.o debug/moc_projtreethread.o debug/moc_projtreewidget.o debug/moc_removeprojdialog.o debug/moc_slideshowdialog.o debug/moc_watermarkdialog.o debug/moc_wizard.o
@@ -298,7 +298,7 @@ debug/moc_predefs.h: C:/Qt/6.11.0/mingw_64/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: debug/moc_abbrlistwidget.cpp debug/moc_confirmpage.cpp debug/moc_drawtoolbar.cpp debug/moc_drawwidget.cpp debug/moc_imginfodialog.cpp debug/moc_mainwindow.cpp debug/moc_mymediaplayer.cpp debug/moc_opentreethread.cpp debug/moc_picanimationwidget.cpp debug/moc_picbutton.cpp debug/moc_picshow.cpp debug/moc_picstatebutton.cpp debug/moc_projsetpage.cpp debug/moc_projtree.cpp debug/moc_projtreethread.cpp debug/moc_projtreewidget.cpp debug/moc_removeprojdialog.cpp debug/moc_slideshowdialog.cpp debug/moc_watermarkdialog.cpp debug/moc_wizard.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug/moc_abbrlistwidget.cpp debug/moc_confirmpage.cpp debug/moc_drawtoolbar.cpp debug/moc_drawwidget.cpp debug/moc_imginfodialog.cpp debug/moc_mainwindow.cpp debug/moc_mymediaplayer.cpp debug/moc_opentreethread.cpp debug/moc_picanimationwidget.cpp debug/moc_picbutton.cpp debug/moc_picshow.cpp debug/moc_picstatebutton.cpp debug/moc_projsetpage.cpp debug/moc_projtree.cpp debug/moc_projtreethread.cpp debug/moc_projtreewidget.cpp debug/moc_removeprojdialog.cpp debug/moc_slideshowdialog.cpp debug/moc_watermarkdialog.cpp debug/moc_wizard.cpp
-debug/moc_abbrlistwidget.cpp: abbrlistwidget.h \
+debug/moc_abbrlistwidget.cpp: inc/abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
@@ -517,16 +517,16 @@ debug/moc_abbrlistwidget.cpp: abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include abbrlistwidget.h -o debug/moc_abbrlistwidget.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/abbrlistwidget.h -o debug/moc_abbrlistwidget.cpp
 
-debug/moc_confirmpage.cpp: confirmpage.h \
+debug/moc_confirmpage.cpp: inc/confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -731,9 +731,9 @@ debug/moc_confirmpage.cpp: confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include confirmpage.h -o debug/moc_confirmpage.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/confirmpage.h -o debug/moc_confirmpage.cpp
 
-debug/moc_drawtoolbar.cpp: drawtoolbar.h \
+debug/moc_drawtoolbar.cpp: inc/drawtoolbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -952,9 +952,9 @@ debug/moc_drawtoolbar.cpp: drawtoolbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qactiongroup.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include drawtoolbar.h -o debug/moc_drawtoolbar.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/drawtoolbar.h -o debug/moc_drawtoolbar.cpp
 
-debug/moc_drawwidget.cpp: drawwidget.h \
+debug/moc_drawwidget.cpp: inc/drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1173,7 +1173,7 @@ debug/moc_drawwidget.cpp: drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QColor \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPointF \
-		drawcommands.h \
+		inc/drawcommands.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QUndoCommand \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPoint \
@@ -1182,9 +1182,9 @@ debug/moc_drawwidget.cpp: drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QImage \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include drawwidget.h -o debug/moc_drawwidget.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/drawwidget.h -o debug/moc_drawwidget.cpp
 
-debug/moc_imginfodialog.cpp: imginfodialog.h \
+debug/moc_imginfodialog.cpp: inc/imginfodialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1389,9 +1389,9 @@ debug/moc_imginfodialog.cpp: imginfodialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include imginfodialog.h -o debug/moc_imginfodialog.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/imginfodialog.h -o debug/moc_imginfodialog.cpp
 
-debug/moc_mainwindow.cpp: mainwindow.h \
+debug/moc_mainwindow.cpp: inc/mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1613,15 +1613,15 @@ debug/moc_mainwindow.cpp: mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSlider \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
-		mymediaplayer.h \
+		inc/mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		const.h \
+		inc/const.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include mainwindow.h -o debug/moc_mainwindow.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/mainwindow.h -o debug/moc_mainwindow.cpp
 
-debug/moc_mymediaplayer.cpp: mymediaplayer.h \
+debug/moc_mymediaplayer.cpp: inc/mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -1750,12 +1750,12 @@ debug/moc_mymediaplayer.cpp: mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QList \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		const.h \
+		inc/const.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include mymediaplayer.h -o debug/moc_mymediaplayer.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/mymediaplayer.h -o debug/moc_mymediaplayer.cpp
 
-debug/moc_opentreethread.cpp: opentreethread.h \
+debug/moc_opentreethread.cpp: inc/opentreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
@@ -1978,9 +1978,9 @@ debug/moc_opentreethread.cpp: opentreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include opentreethread.h -o debug/moc_opentreethread.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/opentreethread.h -o debug/moc_opentreethread.cpp
 
-debug/moc_picanimationwidget.cpp: picanimationwidget.h \
+debug/moc_picanimationwidget.cpp: inc/picanimationwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2206,9 +2206,9 @@ debug/moc_picanimationwidget.cpp: picanimationwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include picanimationwidget.h -o debug/moc_picanimationwidget.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/picanimationwidget.h -o debug/moc_picanimationwidget.cpp
 
-debug/moc_picbutton.cpp: picbutton.h \
+debug/moc_picbutton.cpp: inc/picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2415,9 +2415,9 @@ debug/moc_picbutton.cpp: picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include picbutton.h -o debug/moc_picbutton.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/picbutton.h -o debug/moc_picbutton.cpp
 
-debug/moc_picshow.cpp: picshow.h \
+debug/moc_picshow.cpp: inc/picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2632,9 +2632,9 @@ debug/moc_picshow.cpp: picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include picshow.h -o debug/moc_picshow.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/picshow.h -o debug/moc_picshow.cpp
 
-debug/moc_picstatebutton.cpp: picstatebutton.h \
+debug/moc_picstatebutton.cpp: inc/picstatebutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2839,9 +2839,9 @@ debug/moc_picstatebutton.cpp: picstatebutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include picstatebutton.h -o debug/moc_picstatebutton.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/picstatebutton.h -o debug/moc_picstatebutton.cpp
 
-debug/moc_projsetpage.cpp: projsetpage.h \
+debug/moc_projsetpage.cpp: inc/projsetpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3046,9 +3046,9 @@ debug/moc_projsetpage.cpp: projsetpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include projsetpage.h -o debug/moc_projsetpage.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/projsetpage.h -o debug/moc_projsetpage.cpp
 
-debug/moc_projtree.cpp: projtree.h \
+debug/moc_projtree.cpp: inc/projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3272,9 +3272,9 @@ debug/moc_projtree.cpp: projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include projtree.h -o debug/moc_projtree.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/projtree.h -o debug/moc_projtree.cpp
 
-debug/moc_projtreethread.cpp: projtreethread.h \
+debug/moc_projtreethread.cpp: inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
@@ -3497,9 +3497,9 @@ debug/moc_projtreethread.cpp: projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include projtreethread.h -o debug/moc_projtreethread.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/projtreethread.h -o debug/moc_projtreethread.cpp
 
-debug/moc_projtreewidget.cpp: projtreewidget.h \
+debug/moc_projtreewidget.cpp: inc/projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
@@ -3723,15 +3723,15 @@ debug/moc_projtreewidget.cpp: projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
-		projtreethread.h \
+		inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		opentreethread.h \
+		inc/opentreethread.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include projtreewidget.h -o debug/moc_projtreewidget.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/projtreewidget.h -o debug/moc_projtreewidget.cpp
 
-debug/moc_removeprojdialog.cpp: removeprojdialog.h \
+debug/moc_removeprojdialog.cpp: inc/removeprojdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3935,9 +3935,9 @@ debug/moc_removeprojdialog.cpp: removeprojdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include removeprojdialog.h -o debug/moc_removeprojdialog.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/removeprojdialog.h -o debug/moc_removeprojdialog.cpp
 
-debug/moc_slideshowdialog.cpp: slideshowdialog.h \
+debug/moc_slideshowdialog.cpp: inc/slideshowdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4161,9 +4161,9 @@ debug/moc_slideshowdialog.cpp: slideshowdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include slideshowdialog.h -o debug/moc_slideshowdialog.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/slideshowdialog.h -o debug/moc_slideshowdialog.cpp
 
-debug/moc_watermarkdialog.cpp: watermarkdialog.h \
+debug/moc_watermarkdialog.cpp: inc/watermarkdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4369,9 +4369,9 @@ debug/moc_watermarkdialog.cpp: watermarkdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QColor \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include watermarkdialog.h -o debug/moc_watermarkdialog.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/watermarkdialog.h -o debug/moc_watermarkdialog.cpp
 
-debug/moc_wizard.cpp: wizard.h \
+debug/moc_wizard.cpp: inc/wizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizard \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4576,7 +4576,7 @@ debug/moc_wizard.cpp: wizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.11.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include wizard.h -o debug/moc_wizard.cpp
+	'C:\Qt\6.11.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/debug/moc_predefs.h -IC:/Qt/6.11.0/mingw_64/mkspecs/win32-g++ -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer -IC:/Users/mupen/Documents/trae_projects/Qt6-Things/AlbumPlayer/inc -IC:/Qt/6.11.0/mingw_64/include -IC:/Qt/6.11.0/mingw_64/include/QtMultimedia -IC:/Qt/6.11.0/mingw_64/include/QtWidgets -IC:/Qt/6.11.0/mingw_64/include/QtGui -IC:/Qt/6.11.0/mingw_64/include/QtNetwork -IC:/Qt/6.11.0/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include inc/wizard.h -o debug/moc_wizard.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -4585,17 +4585,17 @@ compiler_moc_source_clean:
 compiler_uic_make_all: ui_confirmpage.h ui_mainwindow.h ui_picshow.h ui_projsetpage.h ui_projtree.h ui_removeprojdialog.h ui_slideshowdialog.h ui_wizard.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_confirmpage.h ui_mainwindow.h ui_picshow.h ui_projsetpage.h ui_projtree.h ui_removeprojdialog.h ui_slideshowdialog.h ui_wizard.h
-ui_confirmpage.h: confirmpage.ui \
+ui_confirmpage.h: layout/confirmpage.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' confirmpage.ui -o ui_confirmpage.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/confirmpage.ui -o ui_confirmpage.h
 
-ui_mainwindow.h: mainwindow.ui \
+ui_mainwindow.h: layout/mainwindow.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' mainwindow.ui -o ui_mainwindow.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/mainwindow.ui -o ui_mainwindow.h
 
-ui_picshow.h: picshow.ui \
+ui_picshow.h: layout/picshow.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe \
-		picbutton.h \
+		inc/picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4800,15 +4800,15 @@ ui_picshow.h: picshow.ui \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' picshow.ui -o ui_picshow.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/picshow.ui -o ui_picshow.h
 
-ui_projsetpage.h: projsetpage.ui \
+ui_projsetpage.h: layout/projsetpage.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' projsetpage.ui -o ui_projsetpage.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/projsetpage.ui -o ui_projsetpage.h
 
-ui_projtree.h: projtree.ui \
+ui_projtree.h: layout/projtree.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe \
-		projtreewidget.h \
+		inc/projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
@@ -5032,22 +5032,22 @@ ui_projtree.h: projtree.ui \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
-		projtreethread.h \
+		inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		opentreethread.h
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' projtree.ui -o ui_projtree.h
+		inc/opentreethread.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/projtree.ui -o ui_projtree.h
 
-ui_removeprojdialog.h: removeprojdialog.ui \
+ui_removeprojdialog.h: layout/removeprojdialog.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' removeprojdialog.ui -o ui_removeprojdialog.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/removeprojdialog.ui -o ui_removeprojdialog.h
 
-ui_slideshowdialog.h: slideshowdialog.ui \
+ui_slideshowdialog.h: layout/slideshowdialog.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe \
-		picbutton.h \
-		picstatebutton.h \
-		picanimationwidget.h \
-		abbrlistwidget.h \
+		inc/picbutton.h \
+		inc/picstatebutton.h \
+		inc/picanimationwidget.h \
+		inc/abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -5895,17 +5895,17 @@ ui_slideshowdialog.h: slideshowdialog.ui \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' slideshowdialog.ui -o ui_slideshowdialog.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/slideshowdialog.ui -o ui_slideshowdialog.h
 
-ui_wizard.h: wizard.ui \
+ui_wizard.h: layout/wizard.ui \
 		C:/Qt/6.11.0/mingw_64/bin/uic.exe \
-		projsetpage.h \
-		confirmpage.h \
+		inc/projsetpage.h \
+		inc/confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -6310,7 +6310,7 @@ ui_wizard.h: wizard.ui \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h
-	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' wizard.ui -o ui_wizard.h
+	'C:\Qt\6.11.0\mingw_64\bin\uic.exe' layout/wizard.ui -o ui_wizard.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -6324,7 +6324,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-debug/abbrlistwidget.o: abbrlistwidget.cpp abbrlistwidget.h \
+debug/abbrlistwidget.o: src/abbrlistwidget.cpp inc/abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
@@ -6543,13 +6543,13 @@ debug/abbrlistwidget.o: abbrlistwidget.cpp abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		projtreeitem.h \
-		abbrlistwidgetitem.h \
+		inc/projtreeitem.h \
+		inc/abbrlistwidgetitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QIcon \
@@ -6557,9 +6557,9 @@ debug/abbrlistwidget.o: abbrlistwidget.cpp abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qpainter.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qpen.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/abbrlistwidget.o abbrlistwidget.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/abbrlistwidget.o src/abbrlistwidget.cpp
 
-debug/abbrlistwidgetitem.o: abbrlistwidgetitem.cpp abbrlistwidgetitem.h \
+debug/abbrlistwidgetitem.o: src/abbrlistwidgetitem.cpp inc/abbrlistwidgetitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
@@ -6780,9 +6780,9 @@ debug/abbrlistwidgetitem.o: abbrlistwidgetitem.cpp abbrlistwidgetitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QIcon
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/abbrlistwidgetitem.o abbrlistwidgetitem.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/abbrlistwidgetitem.o src/abbrlistwidgetitem.cpp
 
-debug/confirmpage.o: confirmpage.cpp confirmpage.h \
+debug/confirmpage.o: src/confirmpage.cpp inc/confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -7000,9 +7000,9 @@ debug/confirmpage.o: confirmpage.cpp confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/confirmpage.o confirmpage.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/confirmpage.o src/confirmpage.cpp
 
-debug/drawcommands.o: drawcommands.cpp drawcommands.h \
+debug/drawcommands.o: src/drawcommands.cpp inc/drawcommands.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QUndoCommand \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qundostack.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qtguiglobal.h \
@@ -7175,9 +7175,9 @@ debug/drawcommands.o: drawcommands.cpp drawcommands.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qfontvariableaxis.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qfontmetrics.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawcommands.o drawcommands.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawcommands.o src/drawcommands.cpp
 
-debug/drawtoolbar.o: drawtoolbar.cpp drawtoolbar.h \
+debug/drawtoolbar.o: src/drawtoolbar.cpp inc/drawtoolbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -7408,9 +7408,9 @@ debug/drawtoolbar.o: drawtoolbar.cpp drawtoolbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGroupBox \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgroupbox.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawtoolbar.o drawtoolbar.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawtoolbar.o src/drawtoolbar.cpp
 
-debug/drawwidget.o: drawwidget.cpp drawwidget.h \
+debug/drawwidget.o: src/drawwidget.cpp inc/drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -7629,7 +7629,7 @@ debug/drawwidget.o: drawwidget.cpp drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QColor \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPointF \
-		drawcommands.h \
+		inc/drawcommands.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QUndoCommand \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPoint \
@@ -7657,12 +7657,12 @@ debug/drawwidget.o: drawwidget.cpp drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsTextItem \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QBrush \
-		watermarkdialog.h \
+		inc/watermarkdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QFont
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawwidget.o drawwidget.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/drawwidget.o src/drawwidget.cpp
 
-debug/imginfodialog.o: imginfodialog.cpp imginfodialog.h \
+debug/imginfodialog.o: src/imginfodialog.cpp inc/imginfodialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -7888,9 +7888,9 @@ debug/imginfodialog.o: imginfodialog.cpp imginfodialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialogButtonBox \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/imginfodialog.o imginfodialog.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/imginfodialog.o src/imginfodialog.cpp
 
-debug/main.o: main.cpp mainwindow.h \
+debug/main.o: src/main.cpp inc/mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -8112,18 +8112,18 @@ debug/main.o: main.cpp mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSlider \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
-		mymediaplayer.h \
+		inc/mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/Qfile \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfiledevice.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/main.o main.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/main.o src/main.cpp
 
-debug/mainwindow.o: mainwindow.cpp mainwindow.h \
+debug/mainwindow.o: src/mainwindow.cpp inc/mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -8345,10 +8345,10 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSlider \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
-		mymediaplayer.h \
+		inc/mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		const.h \
+		inc/const.h \
 		ui_mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
@@ -8381,10 +8381,10 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
-		wizard.h \
+		inc/wizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizard \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
-		projtree.h \
+		inc/projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
@@ -8402,14 +8402,14 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		projtreewidget.h \
+		inc/projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressdialog.h \
-		projtreethread.h \
+		inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		opentreethread.h \
-		picshow.h \
+		inc/opentreethread.h \
+		inc/picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPropertyAnimation \
@@ -8422,9 +8422,9 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mainwindow.o mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mainwindow.o src/mainwindow.cpp
 
-debug/mymediaplayer.o: mymediaplayer.cpp mymediaplayer.h \
+debug/mymediaplayer.o: src/mymediaplayer.cpp inc/mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -8553,12 +8553,12 @@ debug/mymediaplayer.o: mymediaplayer.cpp mymediaplayer.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QList \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.11.0/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QRandomGenerator \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qrandom.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mymediaplayer.o mymediaplayer.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mymediaplayer.o src/mymediaplayer.cpp
 
-debug/opentreethread.o: opentreethread.cpp opentreethread.h \
+debug/opentreethread.o: src/opentreethread.cpp inc/opentreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
@@ -8789,12 +8789,12 @@ debug/opentreethread.o: opentreethread.cpp opentreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QFileInfoList \
-		projtreeitem.h \
+		inc/projtreeitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		const.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/opentreethread.o opentreethread.cpp
+		inc/const.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/opentreethread.o src/opentreethread.cpp
 
-debug/picanimationwidget.o: picanimationwidget.cpp picanimationwidget.h \
+debug/picanimationwidget.o: src/picanimationwidget.cpp inc/picanimationwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -9025,12 +9025,12 @@ debug/picanimationwidget.o: picanimationwidget.cpp picanimationwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QGuiApplication \
-		projtreeitem.h \
-		abbrlistwidgetitem.h \
+		inc/projtreeitem.h \
+		inc/abbrlistwidgetitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QIcon
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picanimationwidget.o picanimationwidget.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picanimationwidget.o src/picanimationwidget.cpp
 
-debug/picbutton.o: picbutton.cpp picbutton.h \
+debug/picbutton.o: src/picbutton.cpp inc/picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -9235,9 +9235,9 @@ debug/picbutton.o: picbutton.cpp picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picbutton.o picbutton.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picbutton.o src/picbutton.cpp
 
-debug/picshow.o: picshow.cpp picshow.h \
+debug/picshow.o: src/picshow.cpp inc/picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -9467,7 +9467,7 @@ debug/picshow.o: picshow.cpp picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSpacerItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
-		picbutton.h \
+		inc/picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPainter \
@@ -9485,8 +9485,8 @@ debug/picshow.o: picshow.cpp picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QKeyEvent \
-		imginfodialog.h \
-		drawwidget.h \
+		inc/imginfodialog.h \
+		inc/drawwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qscrollarea.h \
@@ -9500,14 +9500,14 @@ debug/picshow.o: picshow.cpp picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qundostack.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QColor \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPointF \
-		drawcommands.h \
+		inc/drawcommands.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QUndoCommand \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QPoint \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QVector \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qvector.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QImage \
-		drawtoolbar.h \
+		inc/drawtoolbar.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSlider \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
@@ -9515,9 +9515,9 @@ debug/picshow.o: picshow.cpp picshow.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtoolbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QActionGroup \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qactiongroup.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picshow.o picshow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picshow.o src/picshow.cpp
 
-debug/picstatebutton.o: picstatebutton.cpp picstatebutton.h \
+debug/picstatebutton.o: src/picstatebutton.cpp inc/picstatebutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -9720,11 +9720,11 @@ debug/picstatebutton.o: picstatebutton.cpp picstatebutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
-		const.h \
+		inc/const.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picstatebutton.o picstatebutton.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/picstatebutton.o src/picstatebutton.cpp
 
-debug/projsetpage.o: projsetpage.cpp projsetpage.h \
+debug/projsetpage.o: src/projsetpage.cpp inc/projsetpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -9963,9 +9963,9 @@ debug/projsetpage.o: projsetpage.cpp projsetpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projsetpage.o projsetpage.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projsetpage.o src/projsetpage.cpp
 
-debug/projtree.o: projtree.cpp projtree.h \
+debug/projtree.o: src/projtree.cpp inc/projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -10198,14 +10198,14 @@ debug/projtree.o: projtree.cpp projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
-		projtreewidget.h \
+		inc/projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QAction \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressdialog.h \
-		projtreethread.h \
+		inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		opentreethread.h \
+		inc/opentreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qdir.h \
@@ -10216,9 +10216,9 @@ debug/projtree.o: projtree.cpp projtree.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtree.o projtree.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtree.o src/projtree.cpp
 
-debug/projtreeitem.o: projtreeitem.cpp projtreeitem.h \
+debug/projtreeitem.o: src/projtreeitem.cpp inc/projtreeitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
@@ -10438,10 +10438,10 @@ debug/projtreeitem.o: projtreeitem.cpp projtreeitem.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		const.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreeitem.o projtreeitem.cpp
+		inc/const.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreeitem.o src/projtreeitem.cpp
 
-debug/projtreethread.o: projtreethread.cpp projtreethread.h \
+debug/projtreethread.o: src/projtreethread.cpp inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
@@ -10671,11 +10671,11 @@ debug/projtreethread.o: projtreethread.cpp projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
-		projtreeitem.h \
-		const.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreethread.o projtreethread.cpp
+		inc/projtreeitem.h \
+		inc/const.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreethread.o src/projtreethread.cpp
 
-debug/projtreewidget.o: projtreewidget.cpp projtreewidget.h \
+debug/projtreewidget.o: src/projtreewidget.cpp inc/projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtreeview.h \
@@ -10899,15 +10899,15 @@ debug/projtreewidget.o: projtreewidget.cpp projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
-		projtreethread.h \
+		inc/projtreethread.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QThread \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
-		opentreethread.h \
-		projtreeitem.h \
-		const.h \
-		removeprojdialog.h \
+		inc/opentreethread.h \
+		inc/projtreeitem.h \
+		inc/const.h \
+		inc/removeprojdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
-		slideshowdialog.h \
+		inc/slideshowdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QDir \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qdir.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/qdirlisting.h \
@@ -10925,9 +10925,9 @@ debug/projtreewidget.o: projtreewidget.cpp projtreewidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHeaderView \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qheaderview.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreewidget.o projtreewidget.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/projtreewidget.o src/projtreewidget.cpp
 
-debug/removeprojdialog.o: removeprojdialog.cpp removeprojdialog.h \
+debug/removeprojdialog.o: src/removeprojdialog.cpp inc/removeprojdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -11150,9 +11150,9 @@ debug/removeprojdialog.o: removeprojdialog.cpp removeprojdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/removeprojdialog.o removeprojdialog.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/removeprojdialog.o src/removeprojdialog.cpp
 
-debug/slideshowdialog.o: slideshowdialog.cpp slideshowdialog.h \
+debug/slideshowdialog.o: src/slideshowdialog.cpp inc/slideshowdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -11386,23 +11386,23 @@ debug/slideshowdialog.o: slideshowdialog.cpp slideshowdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
-		abbrlistwidget.h \
+		inc/abbrlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlistview.h \
-		const.h \
-		picanimationwidget.h \
+		inc/const.h \
+		inc/picanimationwidget.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QListWidgetItem \
-		picstatebutton.h \
+		inc/picstatebutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
-		picbutton.h \
+		inc/picbutton.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QEvent
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/slideshowdialog.o slideshowdialog.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/slideshowdialog.o src/slideshowdialog.cpp
 
-debug/watermarkdialog.o: watermarkdialog.cpp watermarkdialog.h \
+debug/watermarkdialog.o: src/watermarkdialog.cpp inc/watermarkdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -11649,9 +11649,9 @@ debug/watermarkdialog.o: watermarkdialog.cpp watermarkdialog.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/QPainter \
 		C:/Qt/6.11.0/mingw_64/include/QtGui/qpainter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/watermarkdialog.o watermarkdialog.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/watermarkdialog.o src/watermarkdialog.cpp
 
-debug/wizard.o: wizard.cpp wizard.h \
+debug/wizard.o: src/wizard.cpp inc/wizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizard \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -11858,10 +11858,10 @@ debug/wizard.o: wizard.cpp wizard.h \
 		C:/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
-		confirmpage.h \
+		inc/confirmpage.h \
 		C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWizardPage \
-		projsetpage.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/wizard.o wizard.cpp
+		inc/projsetpage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/wizard.o src/wizard.cpp
 
 debug/qrc_rc.o: debug/qrc_rc.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/qrc_rc.o debug/qrc_rc.cpp

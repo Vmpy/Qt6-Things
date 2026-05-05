@@ -4,71 +4,69 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+INCLUDEPATH += $$PWD/inc
 
 SOURCES += \
-    abbrlistwidget.cpp \
-    abbrlistwidgetitem.cpp \
-    confirmpage.cpp \
-    drawcommands.cpp \
-    drawtoolbar.cpp \
-    drawwidget.cpp \
-    imginfodialog.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    mymediaplayer.cpp \
-    opentreethread.cpp \
-    picanimationwidget.cpp \
-    picbutton.cpp \
-    picshow.cpp \
-    picstatebutton.cpp \
-    projsetpage.cpp \
-    projtree.cpp \
-    projtreeitem.cpp \
-    projtreethread.cpp \
-    projtreewidget.cpp \
-    removeprojdialog.cpp \
-    slideshowdialog.cpp \
-    watermarkdialog.cpp \
-    wizard.cpp
+    src/abbrlistwidget.cpp \
+    src/abbrlistwidgetitem.cpp \
+    src/confirmpage.cpp \
+    src/drawcommands.cpp \
+    src/drawtoolbar.cpp \
+    src/drawwidget.cpp \
+    src/imginfodialog.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/mymediaplayer.cpp \
+    src/opentreethread.cpp \
+    src/picanimationwidget.cpp \
+    src/picbutton.cpp \
+    src/picshow.cpp \
+    src/picstatebutton.cpp \
+    src/projsetpage.cpp \
+    src/projtree.cpp \
+    src/projtreeitem.cpp \
+    src/projtreethread.cpp \
+    src/projtreewidget.cpp \
+    src/removeprojdialog.cpp \
+    src/slideshowdialog.cpp \
+    src/watermarkdialog.cpp \
+    src/wizard.cpp
 
 HEADERS += \
-    abbrlistwidget.h \
-    abbrlistwidgetitem.h \
-    confirmpage.h \
-    const.h \
-    drawcommands.h \
-    drawtoolbar.h \
-    drawwidget.h \
-    imginfodialog.h \
-    mainwindow.h \
-    mymediaplayer.h \
-    opentreethread.h \
-    picanimationwidget.h \
-    picbutton.h \
-    picshow.h \
-    picstatebutton.h \
-    projsetpage.h \
-    projtree.h \
-    projtreeitem.h \
-    projtreethread.h \
-    projtreewidget.h \
-    removeprojdialog.h \
-    slideshowdialog.h \
-    watermarkdialog.h \
-    wizard.h
+    inc/abbrlistwidget.h \
+    inc/abbrlistwidgetitem.h \
+    inc/confirmpage.h \
+    inc/const.h \
+    inc/drawcommands.h \
+    inc/drawtoolbar.h \
+    inc/drawwidget.h \
+    inc/imginfodialog.h \
+    inc/mainwindow.h \
+    inc/mymediaplayer.h \
+    inc/opentreethread.h \
+    inc/picanimationwidget.h \
+    inc/picbutton.h \
+    inc/picshow.h \
+    inc/picstatebutton.h \
+    inc/projsetpage.h \
+    inc/projtree.h \
+    inc/projtreeitem.h \
+    inc/projtreethread.h \
+    inc/projtreewidget.h \
+    inc/removeprojdialog.h \
+    inc/slideshowdialog.h \
+    inc/watermarkdialog.h \
+    inc/wizard.h
 
 FORMS += \
-    confirmpage.ui \
-    mainwindow.ui \
-    picshow.ui \
-    projsetpage.ui \
-    projtree.ui \
-    removeprojdialog.ui \
-    slideshowdialog.ui \
-    wizard.ui
+    layout/confirmpage.ui \
+    layout/mainwindow.ui \
+    layout/picshow.ui \
+    layout/projsetpage.ui \
+    layout/projtree.ui \
+    layout/removeprojdialog.ui \
+    layout/slideshowdialog.ui \
+    layout/wizard.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -6,6 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 An electronic photo album (电子相册) desktop app built with Qt6 (C++17). It browses image collections in a project/directory tree, plays background music (mp3/wav), and runs slideshows with crossfade animations.
 
+## Directory structure
+
+```
+AlbumPlayer/
+├── AlbumPlayer.pro          # qmake project file
+├── rc.qrc                   # Qt resource file (icons, stylesheet)
+├── src/                     # C++ source files (.cpp)
+├── inc/                     # C++ header files (.h)
+├── layout/                  # Qt Designer UI files (.ui)
+├── icon/                    # Icons (SVG, PNG, ICO)
+├── style/                   # QSS stylesheet
+├── requirement/             # Feature requirement docs (Chinese)
+└── release/                 # Build output (qmake Release)
+```
+
+Headers are included by bare filename (e.g. `#include "picshow.h"`) — `AlbumPlayer.pro` adds `INCLUDEPATH += $$PWD/inc`.
+
 ## Build & run
 
 ```bash
